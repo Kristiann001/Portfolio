@@ -292,15 +292,18 @@
 
           <!-- Contact Me Button -->
           <button
-            onclick="document.getElementById('email-display').classList.remove('hidden')"
+            onclick="document.getElementById('email-display').classList.toggle('hidden')"
             class="inline-block px-5 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition"
           >
             Contact Me
           </button>
 
           <!-- Hidden Email Display -->
-          <p id="email-display" class="text-green-400 mt-4 hidden">
-            Email: originalkristiann@gmail.com
+          <p id="email-display" class="mt-4 hidden">
+            <span class="font-semibold text-white">Email:</span>
+            <span class="text-green-400 underline"
+              >originalkristiann@gmail.com</span
+            >
           </p>
         </div>
       </div>
