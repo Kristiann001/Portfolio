@@ -3,72 +3,122 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Add Font Awesome CDN for better icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
     <title>myPortfolio</title>
   </head>
   <body class="bg-gray-100">
     <!-- Sidebar -->
-    <aside id="sidebar-multi-level-sidebar" class="fixed top-0 left-0 z-40 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+    <aside
+      id="sidebar-multi-level-sidebar"
+      class="fixed top-0 left-0 z-40 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0"
+      aria-label="Sidebar"
+    >
       <div class="h-full px-3 py-4 overflow-y-auto bg-[#2b2b2d] text-white">
-        
         <!-- Profile Section -->
         <div class="flex flex-col items-center mb-6">
           <!-- Avatar Image with Green Border -->
-          <img src="/Images/profile.jpg" alt="Profile Picture" class="w-24 h-24 rounded-full border-4 border-green-500" />
-          <h1 class="mt-3 text-lg font-semibold text-white">Kristian Koome</h1> <!-- Added name -->
-          <h2 class="mt-1 text-sm font-semibold text-white">originalkristiann@gmail.com</h2>
-          <button class="mt-2 px-4 py-1 text-sm font-medium text-white bg-green-600 rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400">For Hire</button>
+          <img
+            src="/Images/profile.jpg"
+            alt="Profile Picture"
+            class="w-24 h-24 rounded-full border-4 border-green-500"
+          />
+          <h1
+            class="mt-3 text-lg font-semibold text-white flex items-center gap-2"
+          >
+            Kristian Koome
+            <i
+              class="fas fa-check-circle text-green-500 text-base"
+              title="Verified"
+            ></i>
+          </h1>
+
+          <!-- Added name -->
+          <h2 class="mt-1 text-sm font-semibold text-white">
+            originalkristiann@gmail.com
+          </h2>
+          <button
+            class="mt-2 px-4 py-1 text-sm font-medium text-white bg-green-600 rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400"
+          >
+            For Hire
+          </button>
         </div>
 
         <!-- Navigation -->
         <ul class="space-y-2 font-medium">
           <li>
-            <a href="index.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]">
+            <a
+              href="index.html"
+              class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
+            >
               <!-- Updated Icon (Home) -->
               <i class="fas fa-home w-5 h-5 text-white"></i>
               <span class="ml-3">Home</span>
             </a>
           </li>
           <li>
-            <a href="about.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]">
+            <a
+              href="about.html"
+              class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
+            >
               <!-- Updated Icon (About) -->
               <i class="fas fa-user w-5 h-5 text-white"></i>
               <span class="ml-3">About</span>
             </a>
           </li>
           <li>
-            <a href="achievements.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]">
+            <a
+              href="achievements.html"
+              class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
+            >
               <!-- Updated Icon (Achievements) -->
               <i class="fas fa-trophy w-5 h-5 text-white"></i>
               <span class="ml-3">Achievements</span>
             </a>
           </li>
           <li>
-            <a href="projects.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]">
+            <a
+              href="projects.html"
+              class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
+            >
               <!-- Updated Icon (Projects) -->
               <i class="fas fa-briefcase w-5 h-5 text-white"></i>
               <span class="ml-3">Projects</span>
             </a>
           </li>
           <li>
-            <a href="dashboard.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]">
+            <a
+              href="dashboard.html"
+              class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
+            >
               <!-- Updated Icon (Dashboard) -->
               <i class="fas fa-chart-line w-5 h-5 text-white"></i>
               <span class="ml-3">Dashboard</span>
             </a>
           </li>
           <li>
-            <a href="chatroom.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]">
+            <a
+              href="chatroom.html"
+              class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
+            >
               <!-- Updated Icon (Chat) -->
               <i class="fas fa-comments w-5 h-5 text-white"></i>
               <span class="ml-3">Chatroom</span>
             </a>
           </li>
           <li>
-            <a href="contact.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]">
+            <a
+              href="contact.html"
+              class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
+            >
               <!-- Updated Icon (Contact) -->
               <i class="fas fa-envelope w-5 h-5 text-white"></i>
               <span class="ml-3">Contact</span>
@@ -77,9 +127,100 @@
         </ul>
       </div>
     </aside>
-     <main class="ml-72 p-6 min-h-screen bg-[#2b2b2d] text-white">
-      
-     </main>
+    <main class="ml-72 p-6 min-h-screen bg-[#2b2b2d] text-white">
+      <!-- About Section -->
+      <h2 class="text-2xl font-bold mb-4">About</h2>
+      <p class="text-white/90 mb-4">A brief introduction :</p>
+
+      <p class="text-white/90 mb-4">
+        I am a dedicated and growth-oriented software developer based in
+        Nairobi, Kenya, with a solid foundation in full-stack web development
+        and cloud computing. My journey into technology has been fueled by a
+        deep interest in building innovative, scalable solutions and
+        continuously expanding my technical capabilities. I approach each
+        project with a commitment to writing clean, maintainable code and
+        leveraging best practices in both development and deployment.
+      </p>
+
+      <p class="text-white/90 mb-4">
+        My technical training includes a rigorous six-month coding bootcamp at
+        one of Kenya’s premier technical institutions, where I specialized in
+        real-world project execution, agile methodologies, and cross-functional
+        team collaboration. This experience equipped me with practical skills in
+        backend and frontend development, version control, and collaborative
+        problem-solving in a simulated professional environment closely
+        mirroring the dynamics of a modern tech workplace.
+      </p>
+
+      <p class="text-white/90">
+        To further deepen my understanding of cloud-native technologies, I
+        completed a Coursera program focused on cloud infrastructure and
+        services. This allowed me to gain hands-on experience with scalable
+        architectures, cloud deployments, and DevOps principles. I am now
+        actively applying these skills in building robust applications and
+        contributing to projects that align with global software development
+        standards. With my combined experience in software engineering and cloud
+        technologies, I am well-positioned to add value in fast-paced,
+        high-impact engineering teams, both locally and internationally.
+      </p>
+
+      <!-- Separator -->
+      <hr class="my-10 border-white/20" />
+
+      <!-- Education Section -->
+      <section>
+        <h2 class="text-2xl font-bold mb-6">Education</h2>
+
+        <div class="flex flex-col-reverse gap-6">
+          <!-- Row 2: Coursera / University of Melbourne -->
+          <div
+            class="bg-[#3a3a3c] p-6 rounded-xl shadow-md border border-white/10 flex items-center gap-4"
+          >
+            <img
+              src="/Images/melbourne.jpg"
+              alt="University of Melbourne logo"
+              class="w-16 h-16 object-contain"
+            />
+            <div>
+              <h3 class="text-xl font-semibold mb-1">
+                Cloud Computing Specialization
+              </h3>
+              <p class="text-white/80 mb-1">
+                University of Melbourne (via Coursera)
+              </p>
+              <p class="text-sm text-white/60 mb-2">Completed • Short Course</p>
+              <p class="text-white/80 text-sm">
+                Explored cloud architecture, infrastructure services, DevOps
+                tools, and deployment pipelines through University‑led labs.
+              </p>
+            </div>
+          </div>
+
+          <!-- Row 1: Bootcamp / Moringa School -->
+          <div
+            class="bg-[#3a3a3c] p-6 rounded-xl shadow-md border border-white/10 flex items-center gap-4"
+          >
+            <img
+              src="/Images/moringa.jpg"
+              alt="Moringa School logo"
+              class="w-16 h-16 object-contain"
+            />
+            <div>
+              <h3 class="text-xl font-semibold mb-1">
+                Software Development Bootcamp
+              </h3>
+              <p class="text-white/80 mb-1">Moringa School, Nairobi</p>
+              <p class="text-sm text-white/60 mb-2">Completed • 6 Months</p>
+              <p class="text-white/80 text-sm">
+                Intensive full‑stack development training with focus on
+                collaborative projects, agile practices, and real‑world coding
+                experience.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
