@@ -7,7 +7,10 @@
       href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
       rel="stylesheet"
     />
-    <link rel="icon"href="https://img.freepik.com/premium-vector/kk-logo-vector_724449-190.jpg">
+    <link
+      rel="icon"
+      href="https://img.freepik.com/premium-vector/kk-logo-vector_724449-190.jpg"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Add Font Awesome CDN for better icons -->
     <link
@@ -18,7 +21,7 @@
   </head>
   <body class="bg-gray-100">
     <!-- Sidebar -->
-   <aside
+    <aside
       id="sidebar-multi-level-sidebar"
       class="fixed top-0 left-0 z-40 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0"
       aria-label="Sidebar"
@@ -87,36 +90,6 @@
           </li>
           <li>
             <a
-              href="projects.html"
-              class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
-            >
-              <!-- Updated Icon (Projects) -->
-              <i class="fas fa-briefcase w-5 h-5 text-white"></i>
-              <span class="ml-3">Projects</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="dashboard.html"
-              class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
-            >
-              <!-- Updated Icon (Dashboard) -->
-              <i class="fas fa-chart-line w-5 h-5 text-white"></i>
-              <span class="ml-3">Dashboard</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="chatroom.html"
-              class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
-            >
-              <!-- Updated Icon (Chat) -->
-              <i class="fas fa-comments w-5 h-5 text-white"></i>
-              <span class="ml-3">Chatroom</span>
-            </a>
-          </li>
-          <li>
-            <a
               href="contact.html"
               class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
             >
@@ -129,8 +102,89 @@
       </div>
     </aside>
     <main class="ml-72 p-6 min-h-screen bg-[#2b2b2d] text-white">
-      
+      <!-- Contact Section -->
+      <section class="py-16 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-3xl font-bold mb-6 text-green-400">Get in Touch</h2>
+          <p class="text-white/80 mb-12">
+            Feel free to reach out for collaborations, questions, or just to
+            connect.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Phone -->
+            <div
+              class="flex items-center space-x-4 bg-gray-800 border border-gray-700 p-6 rounded-2xl shadow-lg hover:border-green-400 transition"
+            >
+              <i class="fas fa-phone-alt text-green-400 text-2xl"></i>
+              <div class="text-left">
+                <p class="font-semibold text-white">Phone</p>
+                <p class="text-white/70">+254 759725385</p>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div
+              class="flex items-center space-x-4 bg-gray-800 border border-gray-700 p-6 rounded-2xl shadow-lg hover:border-green-400 transition"
+            >
+              <i class="fas fa-envelope text-green-400 text-2xl"></i>
+              <div class="text-left">
+                <p class="font-semibold text-white">Email</p>
+                <p class="text-white/70">originalkristiann@gmail.com</p>
+              </div>
+            </div>
+
+            <!-- Location -->
+            <div
+              class="flex items-center space-x-4 bg-gray-800 border border-gray-700 p-6 rounded-2xl shadow-lg hover:border-green-400 transition"
+            >
+              <i class="fas fa-map-marker-alt text-green-400 text-2xl"></i>
+              <div class="text-left">
+                <p class="font-semibold text-white">Location</p>
+                <p class="text-white/70">Nairobi, Kenya</p>
+              </div>
+            </div>
+
+            <!-- GitHub -->
+            <div
+              class="flex items-center space-x-4 bg-gray-800 border border-gray-700 p-6 rounded-2xl shadow-lg hover:border-green-400 transition"
+            >
+              <i class="fab fa-github text-green-400 text-2xl"></i>
+              <div class="text-left">
+                <p class="font-semibold text-white">GitHub</p>
+                <a
+                  href="https://github.com/Kristiann001"
+                  target="_blank"
+                  class="text-green-400 hover:underline"
+                >
+                  https://github.com/Kristiann001
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- LinkedIn  -->
+          <div class="mt-8 flex justify-center">
+            <div
+              class="flex items-center space-x-4 bg-gray-800 border border-gray-700 p-6 rounded-2xl shadow-lg hover:border-green-400 transition w-full md:w-1/2"
+            >
+              <i class="fab fa-linkedin text-green-400 text-2xl"></i>
+              <div class="text-left">
+                <p class="font-semibold text-white">LinkedIn</p>
+                <a
+                  href="https://www.linkedin.com/in/kristian-koome"
+                  target="_blank"
+                  class="text-green-400 hover:underline"
+                >
+                  https://www.linkedin.com/in/kristian-koome
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
   </body>
