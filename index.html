@@ -7,7 +7,10 @@
       href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
       rel="stylesheet"
     />
-    <link rel="icon"href="https://img.freepik.com/premium-vector/kk-logo-vector_724449-190.jpg">
+    <link
+      rel="icon"
+      href="https://img.freepik.com/premium-vector/kk-logo-vector_724449-190.jpg"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Add Font Awesome CDN for better icons -->
     <link
@@ -49,10 +52,10 @@
     <title>myPortfolio</title>
   </head>
   <body class="bg-gray-100">
-    <!-- Sidebar -->
+    <!-- Sidebar (Visible on sm and up) -->
     <aside
       id="sidebar-multi-level-sidebar"
-      class="fixed top-0 left-0 z-40 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0"
+      class="fixed top-0 left-0 z-40 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0 hidden sm:block"
       aria-label="Sidebar"
     >
       <div class="h-full px-3 py-4 overflow-y-auto bg-[#2b2b2d] text-white">
@@ -92,7 +95,6 @@
               href="index.html"
               class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
             >
-              <!-- Updated Icon (Home) -->
               <i class="fas fa-home w-5 h-5 text-white"></i>
               <span class="ml-3">Home</span>
             </a>
@@ -102,7 +104,6 @@
               href="about.html"
               class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
             >
-              <!-- Updated Icon (About) -->
               <i class="fas fa-user w-5 h-5 text-white"></i>
               <span class="ml-3">About</span>
             </a>
@@ -112,16 +113,15 @@
               href="achievements.html"
               class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
             >
-              <!-- Updated Icon (Achievements) -->
               <i class="fas fa-trophy w-5 h-5 text-white"></i>
               <span class="ml-3">Achievements</span>
             </a>
           </li>
+          <li>
             <a
               href="contact.html"
               class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
             >
-              <!-- Updated Icon (Contact) -->
               <i class="fas fa-envelope w-5 h-5 text-white"></i>
               <span class="ml-3">Contact</span>
             </a>
@@ -130,7 +130,9 @@
       </div>
     </aside>
 
-    <main class="ml-72 p-6 min-h-screen bg-[#2b2b2d] text-white">
+    <!-- Main Content -->
+    <!-- Main Content -->
+    <main class="sm:ml-72 p-6 min-h-screen bg-[#2b2b2d] text-white pb-20">
       <h1 class="text-3xl font-extrabold mb-2">Hi, I am Kristian Koome!</h1>
       <h2 class="text-lg font-medium mb-4 text-green-400">
         Full Stack MERN Developer
@@ -149,14 +151,12 @@
         forward-thinking teams to build impactful digital experiences.
       </p>
 
-      <!-- Separator -->
       <hr class="border-t border-gray-500 mb-6" />
 
       <!-- Skills Section -->
       <h2 class="text-xl font-semibold text-green-400 mb-2">Skills</h2>
       <p class="text-white/90">My professional skills include:</p>
       <!-- Skill Buttons -->
-      <!-- Top Row: Left to Right -->
       <div class="overflow-hidden whitespace-nowrap mb-6 pt-10">
         <div class="inline-flex gap-3 animate-marquee-left">
           <button
@@ -263,7 +263,6 @@
         </div>
       </div>
 
-      <!-- Separator -->
       <hr class="border-t border-gray-500 mt-12 mb-6" />
 
       <!-- Services Section -->
@@ -307,6 +306,40 @@
         </div>
       </div>
     </main>
+
+    <!-- Bottom Navigation (Mobile & Tablet Only) -->
+    <nav
+      class="fixed bottom-0 left-0 right-0 z-50 bg-[#2b2b2d] border-t border-gray-700 text-white flex justify-around items-center h-14 sm:hidden"
+    >
+      <a
+        href="index.html"
+        class="flex flex-col items-center justify-center text-xs hover:text-green-400"
+      >
+        <i class="fas fa-home text-lg"></i>
+        <span>Home</span>
+      </a>
+      <a
+        href="about.html"
+        class="flex flex-col items-center justify-center text-xs hover:text-green-400"
+      >
+        <i class="fas fa-user text-lg"></i>
+        <span>About</span>
+      </a>
+      <a
+        href="achievements.html"
+        class="flex flex-col items-center justify-center text-xs hover:text-green-400"
+      >
+        <i class="fas fa-trophy text-lg"></i>
+        <span>Awards</span>
+      </a>
+      <a
+        href="contact.html"
+        class="flex flex-col items-center justify-center text-xs hover:text-green-400"
+      >
+        <i class="fas fa-envelope text-lg"></i>
+        <span>Contact</span>
+      </a>
+    </nav>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>

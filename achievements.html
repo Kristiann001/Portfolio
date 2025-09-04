@@ -7,9 +7,11 @@
       href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
       rel="stylesheet"
     />
-    <link rel="icon"href="https://img.freepik.com/premium-vector/kk-logo-vector_724449-190.jpg">
+    <link
+      rel="icon"
+      href="https://img.freepik.com/premium-vector/kk-logo-vector_724449-190.jpg"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Add Font Awesome CDN for better icons -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
@@ -26,14 +28,13 @@
       <div class="h-full px-3 py-4 overflow-y-auto bg-[#2b2b2d] text-white">
         <!-- Profile Section -->
         <div class="flex flex-col items-center mb-6">
-          <!-- Avatar Image with Green Border -->
           <img
             src="/Images/profile.jpg"
             alt="Profile Picture"
             class="w-24 h-24 rounded-full border-4 border-green-500"
           />
           <h1
-            class="mt-3 text-lg font-semibold text-white flex items-center gap-2"
+            class="mt-3 text-lg font-semibold flex items-center gap-2 text-white"
           >
             Kristian Koome
             <i
@@ -41,8 +42,6 @@
               title="Verified"
             ></i>
           </h1>
-
-          <!-- Added name -->
           <h2 class="mt-1 text-sm font-semibold text-white">
             originalkristiann@gmail.com
           </h2>
@@ -60,7 +59,6 @@
               href="index.html"
               class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
             >
-              <!-- Updated Icon (Home) -->
               <i class="fas fa-home w-5 h-5 text-white"></i>
               <span class="ml-3">Home</span>
             </a>
@@ -70,7 +68,6 @@
               href="about.html"
               class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
             >
-              <!-- Updated Icon (About) -->
               <i class="fas fa-user w-5 h-5 text-white"></i>
               <span class="ml-3">About</span>
             </a>
@@ -80,7 +77,6 @@
               href="achievements.html"
               class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
             >
-              <!-- Updated Icon (Achievements) -->
               <i class="fas fa-trophy w-5 h-5 text-white"></i>
               <span class="ml-3">Achievements</span>
             </a>
@@ -90,7 +86,6 @@
               href="contact.html"
               class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
             >
-              <!-- Updated Icon (Contact) -->
               <i class="fas fa-envelope w-5 h-5 text-white"></i>
               <span class="ml-3">Contact</span>
             </a>
@@ -98,10 +93,12 @@
         </ul>
       </div>
     </aside>
-    <main class="ml-72 p-8 min-h-screen bg-[#2b2b2d] text-white">
-      <!-- Achievements Section -->
+
+    <!-- Main Content -->
+    <main
+      class="sm:ml-72 p-8 min-h-screen bg-[#2b2b2d] text-white pb-20"
+    >
       <section class="max-w-6xl mx-auto">
-        <!-- Heading -->
         <h2 class="text-3xl font-bold mb-2">🎓 Achievements</h2>
         <p class="text-white/80 mb-6">
           A collection of certificates and badges I have earned throughout my
@@ -110,14 +107,14 @@
 
         <hr class="border-t border-white/20 mb-12" />
 
-        <!-- Grid of Cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <!-- Responsive Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Card 1 -->
           <div
             class="bg-[#3a3a3c] border border-white/10 rounded-xl shadow-md overflow-hidden"
           >
             <img
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1170&auto=format&fit=crop"
               alt="Web Development Certificate"
               class="w-full h-48 object-cover"
             />
@@ -127,8 +124,7 @@
               </h3>
               <p class="text-sm text-white/70">
                 Completed an intensive course in building modern web
-                applications using the MERN stack (MongoDB, Express, React,
-                Node.js).
+                applications using the MERN stack.
               </p>
             </div>
           </div>
@@ -138,7 +134,7 @@
             class="bg-[#3a3a3c] border border-white/10 rounded-xl shadow-md overflow-hidden"
           >
             <img
-              src="https://images.unsplash.com/photo-1586717799252-bd134ad00e26?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dWklMkZ1eHxlbnwwfHwwfHx8MA%3D%3D"
+              src="https://images.unsplash.com/photo-1586717799252-bd134ad00e26?w=600&auto=format&fit=crop&q=60"
               alt="UI/UX Design Badge"
               class="w-full h-48 object-cover"
             />
@@ -147,9 +143,8 @@
                 UI/UX Design Fundamentals
               </h3>
               <p class="text-sm text-white/70">
-                Earned a badge for completing training on user experience
-                principles, wireframing, and accessible design in Figma and
-                Adobe XD.
+                Badge for completing training on UX principles, wireframing, and
+                design tools like Figma.
               </p>
             </div>
           </div>
@@ -169,7 +164,7 @@
               </h3>
               <p class="text-sm text-white/70">
                 Awarded for solving advanced JavaScript problems and
-                contributing to open-source JS libraries on GitHub.
+                contributing to open-source libraries.
               </p>
             </div>
           </div>
@@ -180,15 +175,14 @@
           >
             <img
               src="https://bernardmarr.com/img/The%205%20Biggest%20Cloud%20Computing%20Trends%20In%202021.jpg"
-              alt="Cybersecurity Foundations"
+              alt="Cloud Computing"
               class="w-full h-48 object-cover"
             />
             <div class="p-5">
               <h3 class="text-lg font-semibold mb-2">Cloud Computing</h3>
               <p class="text-sm text-white/70">
-                Gained foundational knowledge in cloud computing, including
-                cloud service models (IaaS, PaaS, SaaS), virtualization,
-                storage, and deployment basics.
+                Gained knowledge in cloud computing, virtualization, deployment,
+                and service models (IaaS, PaaS, SaaS).
               </p>
             </div>
           </div>
@@ -196,7 +190,28 @@
       </section>
     </main>
 
-    <!-- Scripts -->
+    <!-- Bottom Navigation (Mobile Only) -->
+    <nav
+      class="fixed bottom-0 left-0 right-0 bg-[#2b2b2d] border-t border-gray-700 flex justify-around items-center py-3 sm:hidden"
+    >
+      <a href="index.html" class="flex flex-col items-center text-white">
+        <i class="fas fa-home text-lg"></i>
+        <span class="text-xs">Home</span>
+      </a>
+      <a href="about.html" class="flex flex-col items-center text-white">
+        <i class="fas fa-user text-lg"></i>
+        <span class="text-xs">About</span>
+      </a>
+      <a href="achievements.html" class="flex flex-col items-center text-green-500">
+        <i class="fas fa-trophy text-lg"></i>
+        <span class="text-xs">Achievements</span>
+      </a>
+      <a href="contact.html" class="flex flex-col items-center text-white">
+        <i class="fas fa-envelope text-lg"></i>
+        <span class="text-xs">Contact</span>
+      </a>
+    </nav>
+
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
   </body>
 </html>

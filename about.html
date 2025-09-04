@@ -7,7 +7,10 @@
       href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
       rel="stylesheet"
     />
-    <link rel="icon"href="https://img.freepik.com/premium-vector/kk-logo-vector_724449-190.jpg">
+    <link
+      rel="icon"
+      href="https://img.freepik.com/premium-vector/kk-logo-vector_724449-190.jpg"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Add Font Awesome CDN for better icons -->
     <link
@@ -17,16 +20,15 @@
     <title>myPortfolio</title>
   </head>
   <body class="bg-gray-100">
-    <!-- Sidebar -->
+    <!-- Sidebar (hidden on mobile) -->
     <aside
       id="sidebar-multi-level-sidebar"
-      class="fixed top-0 left-0 z-40 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0"
+      class="fixed top-0 left-0 z-40 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0 hidden sm:block"
       aria-label="Sidebar"
     >
       <div class="h-full px-3 py-4 overflow-y-auto bg-[#2b2b2d] text-white">
         <!-- Profile Section -->
         <div class="flex flex-col items-center mb-6">
-          <!-- Avatar Image with Green Border -->
           <img
             src="/Images/profile.jpg"
             alt="Profile Picture"
@@ -41,8 +43,6 @@
               title="Verified"
             ></i>
           </h1>
-
-          <!-- Added name -->
           <h2 class="mt-1 text-sm font-semibold text-white">
             originalkristiann@gmail.com
           </h2>
@@ -60,7 +60,6 @@
               href="index.html"
               class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
             >
-              <!-- Updated Icon (Home) -->
               <i class="fas fa-home w-5 h-5 text-white"></i>
               <span class="ml-3">Home</span>
             </a>
@@ -70,7 +69,6 @@
               href="about.html"
               class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
             >
-              <!-- Updated Icon (About) -->
               <i class="fas fa-user w-5 h-5 text-white"></i>
               <span class="ml-3">About</span>
             </a>
@@ -80,7 +78,6 @@
               href="achievements.html"
               class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
             >
-              <!-- Updated Icon (Achievements) -->
               <i class="fas fa-trophy w-5 h-5 text-white"></i>
               <span class="ml-3">Achievements</span>
             </a>
@@ -90,7 +87,6 @@
               href="contact.html"
               class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
             >
-              <!-- Updated Icon (Contact) -->
               <i class="fas fa-envelope w-5 h-5 text-white"></i>
               <span class="ml-3">Contact</span>
             </a>
@@ -98,7 +94,11 @@
         </ul>
       </div>
     </aside>
-    <main class="ml-72 p-6 min-h-screen bg-[#2b2b2d] text-white">
+
+    <!-- Main Content -->
+    <main
+      class="sm:ml-72 p-6 min-h-screen bg-[#2b2b2d] text-white pb-20"
+    >
       <!-- About Section -->
       <h2 class="text-2xl font-bold mb-4">About</h2>
       <p class="text-white/90 mb-4">A brief introduction :</p>
@@ -106,46 +106,26 @@
       <p class="text-white/90 mb-4">
         I am a dedicated and growth-oriented software developer based in
         Nairobi, Kenya, with a solid foundation in full-stack web development
-        and cloud computing. My journey into technology has been fueled by a
-        deep interest in building innovative, scalable solutions and
-        continuously expanding my technical capabilities. I approach each
-        project with a commitment to writing clean, maintainable code and
-        leveraging best practices in both development and deployment.
+        and cloud computing...
       </p>
 
       <p class="text-white/90 mb-4">
-        My technical training includes a rigorous six-month coding bootcamp at
-        one of Kenya’s premier technical institutions, where I specialized in
-        real-world project execution, agile methodologies, and cross-functional
-        team collaboration. This experience equipped me with practical skills in
-        backend and frontend development, version control, and collaborative
-        problem-solving in a simulated professional environment closely
-        mirroring the dynamics of a modern tech workplace.
+        My technical training includes a rigorous six-month coding bootcamp...
       </p>
 
       <p class="text-white/90">
-        To further deepen my understanding of cloud-native technologies, I
-        completed a Coursera program focused on cloud infrastructure and
-        services. This allowed me to gain hands-on experience with scalable
-        architectures, cloud deployments, and DevOps principles. I am now
-        actively applying these skills in building robust applications and
-        contributing to projects that align with global software development
-        standards. With my combined experience in software engineering and cloud
-        technologies, I am well-positioned to add value in fast-paced,
-        high-impact engineering teams, both locally and internationally.
+        To further deepen my understanding of cloud-native technologies...
       </p>
 
-      <!-- Separator -->
       <hr class="my-10 border-white/20" />
 
       <!-- Education Section -->
       <section>
         <h2 class="text-2xl font-bold mb-6">Education</h2>
-
         <div class="flex flex-col-reverse gap-6">
-          <!-- Row 2: Coursera / University of Melbourne -->
+          <!-- Row 2 -->
           <div
-            class="bg-[#3a3a3c] p-6 rounded-xl shadow-md border border-white/10 flex items-center gap-4"
+            class="bg-[#3a3a3c] p-6 rounded-xl shadow-md border border-white/10 flex flex-col sm:flex-row items-start sm:items-center gap-4"
           >
             <img
               src="/Images/melbourne.jpg"
@@ -161,15 +141,14 @@
               </p>
               <p class="text-sm text-white/60 mb-2">Completed • Short Course</p>
               <p class="text-white/80 text-sm">
-                Explored cloud architecture, infrastructure services, DevOps
-                tools, and deployment pipelines through University‑led labs.
+                Explored cloud architecture, infrastructure services...
               </p>
             </div>
           </div>
 
-          <!-- Row 1: Bootcamp / Moringa School -->
+          <!-- Row 1 -->
           <div
-            class="bg-[#3a3a3c] p-6 rounded-xl shadow-md border border-white/10 flex items-center gap-4"
+            class="bg-[#3a3a3c] p-6 rounded-xl shadow-md border border-white/10 flex flex-col sm:flex-row items-start sm:items-center gap-4"
           >
             <img
               src="/Images/moringa.jpg"
@@ -183,15 +162,47 @@
               <p class="text-white/80 mb-1">Moringa School, Nairobi</p>
               <p class="text-sm text-white/60 mb-2">Completed • 6 Months</p>
               <p class="text-white/80 text-sm">
-                Intensive full‑stack development training with focus on
-                collaborative projects, agile practices, and real‑world coding
-                experience.
+                Intensive full-stack development training...
               </p>
             </div>
           </div>
         </div>
       </section>
     </main>
+
+    <!-- Bottom Navigation (Mobile Only) -->
+    <nav
+      class="fixed bottom-0 left-0 right-0 z-50 bg-[#2b2b2d]/95 backdrop-blur border-t border-gray-700 text-white flex justify-around items-center h-14 sm:hidden"
+    >
+      <a
+        href="index.html"
+        class="flex flex-col items-center justify-center text-xs hover:text-green-400"
+      >
+        <i class="fas fa-home text-lg"></i>
+        <span>Home</span>
+      </a>
+      <a
+        href="about.html"
+        class="flex flex-col items-center justify-center text-xs hover:text-green-400"
+      >
+        <i class="fas fa-user text-lg"></i>
+        <span>About</span>
+      </a>
+      <a
+        href="achievements.html"
+        class="flex flex-col items-center justify-center text-xs hover:text-green-400"
+      >
+        <i class="fas fa-trophy text-lg"></i>
+        <span>Awards</span>
+      </a>
+      <a
+        href="contact.html"
+        class="flex flex-col items-center justify-center text-xs hover:text-green-400"
+      >
+        <i class="fas fa-envelope text-lg"></i>
+        <span>Contact</span>
+      </a>
+    </nav>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
