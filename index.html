@@ -12,39 +12,28 @@
       href="https://img.freepik.com/premium-vector/kk-logo-vector_724449-190.jpg"
     />
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Add Font Awesome CDN for better icons -->
+    <!-- Font Awesome CDN -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
     />
-    <!-- Devicon CDN for developer logos -->
+    <!-- Devicon CDN -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
     />
     <style>
       @keyframes marquee-left {
-        0% {
-          transform: translateX(100%);
-        }
-        100% {
-          transform: translateX(-100%);
-        }
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
       }
-
       @keyframes marquee-right {
-        0% {
-          transform: translateX(-100%);
-        }
-        100% {
-          transform: translateX(100%);
-        }
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
       }
-
       .animate-marquee-left {
         animation: marquee-left 20s linear infinite;
       }
-
       .animate-marquee-right {
         animation: marquee-right 20s linear infinite;
       }
@@ -55,34 +44,29 @@
     <!-- Sidebar (Visible on sm and up) -->
     <aside
       id="sidebar-multi-level-sidebar"
-      class="fixed top-0 left-0 z-40 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0 hidden sm:block"
+      class="fixed top-0 left-0 z-40 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0"
       aria-label="Sidebar"
     >
       <div class="h-full px-3 py-4 overflow-y-auto bg-[#2b2b2d] text-white">
         <!-- Profile Section -->
         <div class="flex flex-col items-center mb-6">
-          <!-- Avatar Image with Green Border -->
           <img
             src="/Images/profile.jpg"
             alt="Profile Picture"
             class="w-24 h-24 rounded-full border-4 border-green-500"
           />
-          <h1
-            class="mt-3 text-lg font-semibold text-white flex items-center gap-2"
-          >
+          <h1 class="mt-3 text-lg font-semibold text-white flex items-center gap-2">
             Kristian Koome
-            <i
-              class="fas fa-check-circle text-green-500 text-base"
-              title="Verified"
-            ></i>
+            <i class="fas fa-check-circle text-green-500 text-base" title="Verified"></i>
           </h1>
-
-          <!-- Added name -->
           <h2 class="mt-1 text-sm font-semibold text-white">
             originalkristiann@gmail.com
           </h2>
+
+          <!-- Updated "For Hire" Button - Opens Modal -->
           <button
-            class="mt-2 px-4 py-1 text-sm font-medium text-white bg-green-600 rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400"
+            onclick="document.getElementById('hire-modal').classList.remove('hidden')"
+            class="mt-2 inline-block text-center px-4 py-1 text-sm font-medium text-white bg-green-600 rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 cursor-pointer"
           >
             For Hire
           </button>
@@ -91,37 +75,43 @@
         <!-- Navigation -->
         <ul class="space-y-2 font-medium">
           <li>
-            <a
-              href="index.html"
-              class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
-            >
+            <a href="index.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]">
               <i class="fas fa-home w-5 h-5 text-white"></i>
               <span class="ml-3">Home</span>
             </a>
           </li>
           <li>
-            <a
-              href="about.html"
-              class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
-            >
+            <a href="about.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]">
               <i class="fas fa-user w-5 h-5 text-white"></i>
               <span class="ml-3">About</span>
             </a>
           </li>
           <li>
-            <a
-              href="achievements.html"
-              class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
-            >
+            <a href="achievements.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]">
               <i class="fas fa-trophy w-5 h-5 text-white"></i>
               <span class="ml-3">Achievements</span>
             </a>
           </li>
           <li>
-            <a
-              href="contact.html"
-              class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
-            >
+            <a href="projects.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]">
+              <i class="fas fa-briefcase w-5 h-5 text-white"></i>
+              <span class="ml-3">Projects</span>
+            </a>
+          </li>
+          <!-- <li>
+            <a href="dashboard.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]">
+              <i class="fas fa-chart-line w-5 h-5 text-white"></i>
+              <span class="ml-3">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="chatroom.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]">
+              <i class="fas fa-comments w-5 h-5 text-white"></i>
+              <span class="ml-3">Chatroom</span>
+            </a>
+          </li> -->
+          <li>
+            <a href="contact.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]">
               <i class="fas fa-envelope w-5 h-5 text-white"></i>
               <span class="ml-3">Contact</span>
             </a>
@@ -130,7 +120,6 @@
       </div>
     </aside>
 
-    <!-- Main Content -->
     <!-- Main Content -->
     <main class="sm:ml-72 p-6 min-h-screen bg-[#2b2b2d] text-white pb-20">
       <h1 class="text-3xl font-extrabold mb-2">Hi, I am Kristian Koome!</h1>
@@ -156,108 +145,63 @@
       <!-- Skills Section -->
       <h2 class="text-xl font-semibold text-green-400 mb-2">Skills</h2>
       <p class="text-white/90">My professional skills include:</p>
-      <!-- Skill Buttons -->
+
       <div class="overflow-hidden whitespace-nowrap mb-6 pt-10">
         <div class="inline-flex gap-3 animate-marquee-left">
-          <button
-            class="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition ring-1 ring-green-400/40"
-          >
+          <button class="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition ring-1 ring-green-400/40">
             <i class="devicon-mongodb-plain text-lg"></i> MongoDB
           </button>
-
-          <button
-            class="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition ring-1 ring-blue-400/40"
-          >
+          <button class="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition ring-1 ring-blue-400/40">
             <i class="devicon-express-original text-lg"></i> Express.js
           </button>
-
-          <button
-            class="flex items-center gap-2 px-4 py-2 bg-cyan-600 text-white rounded-full hover:bg-cyan-700 transition ring-1 ring-cyan-400/40"
-          >
+          <button class="flex items-center gap-2 px-4 py-2 bg-cyan-600 text-white rounded-full hover:bg-cyan-700 transition ring-1 ring-cyan-400/40">
             <i class="devicon-react-original text-lg"></i> React
           </button>
-
-          <button
-            class="flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-900 transition ring-1 ring-gray-500/40"
-          >
+          <button class="flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-900 transition ring-1 ring-gray-500/40">
             <i class="devicon-nodejs-plain text-lg"></i> Node.js
           </button>
-
-          <button
-            class="flex items-center gap-2 px-4 py-2 bg-pink-600 text-white rounded-full hover:bg-pink-700 transition ring-1 ring-pink-400/40"
-          >
+          <button class="flex items-center gap-2 px-4 py-2 bg-pink-600 text-white rounded-full hover:bg-pink-700 transition ring-1 ring-pink-400/40">
             <i class="fab fa-figma text-lg"></i> Figma
           </button>
-
-          <button
-            class="flex items-center gap-2 px-4 py-2 bg-yellow-600 text-white rounded-full hover:bg-yellow-700 transition ring-1 ring-yellow-400/40"
-          >
+          <button class="flex items-center gap-2 px-4 py-2 bg-yellow-600 text-white rounded-full hover:bg-yellow-700 transition ring-1 ring-yellow-400/40">
             <i class="devicon-python-plain text-lg"></i> Python
           </button>
-
-          <button
-            class="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 transition ring-1 ring-emerald-400/40"
-          >
+          <button class="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 transition ring-1 ring-emerald-400/40">
             <div class="w-5 h-5 bg-white p-0.5 rounded-sm">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg"
-                class="w-full h-full object-contain"
-                alt="Supabase Logo"
-              />
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" class="w-full h-full object-contain" alt="Supabase Logo" />
             </div>
             Supabase
           </button>
-
-          <button
-            class="flex items-center gap-2 px-4 py-2 bg-orange-600 text-white rounded-full hover:bg-orange-700 transition ring-1 ring-orange-400/40"
-          >
+          <button class="flex items-center gap-2 px-4 py-2 bg-orange-600 text-white rounded-full hover:bg-orange-700 transition ring-1 ring-orange-400/40">
             <i class="devicon-git-plain text-lg"></i> Git
           </button>
-
-          <button
-            class="flex items-center gap-2 px-4 py-2 bg-gray-700 text-white rounded-full hover:bg-gray-800 transition ring-1 ring-gray-500/40"
-          >
+          <button class="flex items-center gap-2 px-4 py-2 bg-gray-700 text-white rounded-full hover:bg-gray-800 transition ring-1 ring-gray-500/40">
             <i class="devicon-linux-plain text-lg"></i> Linux
           </button>
         </div>
       </div>
 
-      <!-- Bottom Row: Right to Left -->
       <div class="overflow-hidden whitespace-nowrap">
         <div class="inline-flex gap-3 animate-marquee-right">
-          <button
-            class="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-full hover:bg-red-700 transition"
-          >
+          <button class="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-full hover:bg-red-700 transition">
             <i class="devicon-flask-original"></i> Flask
           </button>
-          <button
-            class="flex items-center gap-2 px-4 py-2 bg-purple-700 text-white rounded-full hover:bg-purple-800 transition"
-          >
+          <button class="flex items-center gap-2 px-4 py-2 bg-purple-700 text-white rounded-full hover:bg-purple-800 transition">
             <i class="devicon-sqlite-plain"></i> SQLite3
           </button>
-          <button
-            class="flex items-center gap-2 px-4 py-2 bg-violet-600 text-white rounded-full hover:bg-violet-700 transition"
-          >
+          <button class="flex items-center gap-2 px-4 py-2 bg-violet-600 text-white rounded-full hover:bg-violet-700 transition">
             <i class="devicon-vitejs-plain"></i> Vite
           </button>
-          <button
-            class="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition"
-          >
+          <button class="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition">
             <i class="devicon-bootstrap-plain"></i> Bootstrap
           </button>
-          <button
-            class="flex items-center gap-2 px-4 py-2 bg-orange-600 text-white rounded-full hover:bg-orange-700 transition"
-          >
+          <button class="flex items-center gap-2 px-4 py-2 bg-orange-600 text-white rounded-full hover:bg-orange-700 transition">
             <i class="devicon-html5-plain"></i> HTML
           </button>
-          <button
-            class="flex items-center gap-2 px-4 py-2 bg-sky-600 text-white rounded-full hover:bg-sky-700 transition"
-          >
+          <button class="flex items-center gap-2 px-4 py-2 bg-sky-600 text-white rounded-full hover:bg-sky-700 transition">
             <i class="devicon-tailwindcss-plain"></i> Tailwind CSS
           </button>
-          <button
-            class="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-full hover:bg-teal-700 transition"
-          >
+          <button class="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-full hover:bg-teal-700 transition">
             <i class="fas fa-route"></i> React Router
           </button>
         </div>
@@ -273,75 +217,164 @@
         My goal is to blend functionality with user-centered design to create
         impactful digital experiences.
       </p>
-      <div>
-        <div
-          class="bg-gray-800 border border-gray-700 rounded-2xl p-6 shadow-lg w-full"
-        >
-          <div class="flex gap-3 mb-2">
-            <i class="fas fa-handshake text-green-400 text-xl"></i>
-            <h2 class="text-xl font-semibold text-white">
-              Let’s work together
-            </h2>
-          </div>
-          <p class="text-white/90 mb-4">
-            I am open for freelancing projects, feel free to email me to see how
-            we can collaborate
-          </p>
-
-          <!-- Contact Me Button -->
-          <button
-            onclick="document.getElementById('email-display').classList.toggle('hidden')"
-            class="inline-block px-5 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition"
-          >
-            Contact Me
-          </button>
-
-          <!-- Hidden Email Display -->
-          <p id="email-display" class="mt-4 hidden">
-            <span class="font-semibold text-white">Email:</span>
-            <span class="text-green-400 underline"
-              >originalkristiann@gmail.com</span
-            >
-          </p>
+      <div class="bg-gray-800 border border-gray-700 rounded-2xl p-6 shadow-lg w-full">
+        <div class="flex gap-3 mb-2">
+          <i class="fas fa-handshake text-green-400 text-xl"></i>
+          <h2 class="text-xl font-semibold text-white">Let’s work together</h2>
         </div>
+        <p class="text-white/90 mb-4">
+          I am open for freelancing projects, feel free to email me to see how
+          we can collaborate
+        </p>
+        <button
+          onclick="document.getElementById('email-display').classList.toggle('hidden')"
+          class="inline-block px-5 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition"
+        >
+          Contact Me
+        </button>
+        <p id="email-display" class="mt-4 hidden">
+          <span class="font-semibold text-white">Email:</span>
+          <span class="text-green-400 underline">originalkristiann@gmail.com</span>
+        </p>
       </div>
     </main>
 
-    <!-- Bottom Navigation (Mobile & Tablet Only) -->
-    <nav
-      class="fixed bottom-0 left-0 right-0 z-50 bg-[#2b2b2d] border-t border-gray-700 text-white flex justify-around items-center h-14 sm:hidden"
-    >
-      <a
-        href="index.html"
-        class="flex flex-col items-center justify-center text-xs hover:text-green-400"
-      >
-        <i class="fas fa-home text-lg"></i>
-        <span>Home</span>
+    <!-- Bottom Navigation (Mobile Only) -->
+    <nav class="fixed bottom-0 left-0 right-0 z-50 bg-[#2b2b2d] border-t border-gray-700 text-white flex justify-around items-center h-14 sm:hidden">
+      <a href="index.html" class="flex flex-col items-center justify-center text-xs hover:text-green-400">
+        <i class="fas fa-home text-lg"></i><span>Home</span>
       </a>
-      <a
-        href="about.html"
-        class="flex flex-col items-center justify-center text-xs hover:text-green-400"
-      >
-        <i class="fas fa-user text-lg"></i>
-        <span>About</span>
+      <a href="about.html" class="flex flex-col items-center justify-center text-xs hover:text-green-400">
+        <i class="fas fa-user text-lg"></i><span>About</span>
       </a>
-      <a
-        href="achievements.html"
-        class="flex flex-col items-center justify-center text-xs hover:text-green-400"
-      >
-        <i class="fas fa-trophy text-lg"></i>
-        <span>Awards</span>
+      <a href="achievements.html" class="flex flex-col items-center justify-center text-xs hover:text-green-400">
+        <i class="fas fa-trophy text-lg"></i><span>Awards</span>
       </a>
-      <a
-        href="contact.html"
-        class="flex flex-col items-center justify-center text-xs hover:text-green-400"
-      >
-        <i class="fas fa-envelope text-lg"></i>
-        <span>Contact</span>
+      <a href="contact.html" class="flex flex-col items-center justify-center text-xs hover:text-green-400">
+        <i class="fas fa-envelope text-lg"></i><span>Contact</span>
       </a>
     </nav>
 
+    <!-- Hire Modal -->
+    <div id="hire-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-70 flex items-center justify-center z-50 px-4">
+      <div class="bg-[#2b2b2d] rounded-xl shadow-2xl w-full max-w-lg p-8 relative">
+        <button
+          onclick="document.getElementById('hire-modal').classList.add('hidden')"
+          class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl"
+        >
+          &times;
+        </button>
+
+        <h2 class="text-2xl font-bold text-green-400 mb-6 text-center">Get in Touch</h2>
+
+        <form id="hire-form">
+          <div class="mb-4">
+            <label class="block text-white mb-1" for="hire-name">Name</label>
+            <input
+              type="text"
+              id="hire-name"
+              name="name"
+              class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+              placeholder="Your name (optional)"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-white mb-1" for="hire-email">Email <span class="text-red-400">*</span></label>
+            <input
+              type="email"
+              id="hire-email"
+              name="email"
+              required
+              class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+              placeholder="your@email.com"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-white mb-1" for="hire-subject">RE / Subject</label>
+            <input
+              type="text"
+              id="hire-subject"
+              name="subject"
+              class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+              placeholder="e.g., Job Opportunity, Freelance Project"
+            />
+          </div>
+
+          <div class="mb-6">
+            <label class="block text-white mb-1" for="hire-message">Message <span class="text-red-400">*</span></label>
+            <textarea
+              id="hire-message"
+              name="message"
+              required
+              rows="5"
+              class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 resize-none"
+              placeholder="Tell me about the opportunity or project..."
+            ></textarea>
+          </div>
+
+          <div class="flex justify-center">
+            <button
+              type="submit"
+              class="px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition"
+            >
+              Send Message
+            </button>
+          </div>
+
+          <p id="hire-status" class="mt-4 text-center text-white"></p>
+        </form>
+      </div>
+    </div>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
+    <!-- Form Submission Script -->
+    <script>
+      const hireForm = document.getElementById('hire-form');
+      const statusEl = document.getElementById('hire-status');
+
+      hireForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(hireForm);
+        const name = formData.get('name') || 'Anonymous';
+        const email = formData.get('email');
+        const subject = formData.get('subject');
+        const message = formData.get('message');
+
+        let fullMessage = message;
+        if (subject) {
+          fullMessage = `Subject: ${subject}\n\n${fullMessage}`;
+        }
+
+        statusEl.textContent = 'Sending...';
+        statusEl.classList.remove('text-red-400', 'text-green-400');
+
+        try {
+          const res = await fetch('/send', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, message: fullMessage }),
+          });
+
+          const data = await res.json();
+
+          if (data.success) {
+            statusEl.textContent = "Message sent successfully! I'll get back to you soon.";
+            statusEl.classList.add('text-green-400');
+            hireForm.reset();
+          } else {
+            throw new Error(data.error || 'Unknown error');
+          }
+        } catch (err) {
+          statusEl.textContent = 'Error sending message. Please try again or email me directly.';
+          statusEl.classList.add('text-red-400');
+          console.error(err);
+        }
+      });
+    </script>
   </body>
 </html>

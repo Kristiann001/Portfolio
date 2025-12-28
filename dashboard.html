@@ -7,136 +7,103 @@
       href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
       rel="stylesheet"
     />
-    <link
-      rel="icon"
-      href="https://img.freepik.com/premium-vector/kk-logo-vector_724449-190.jpg"
-    />
+    <link rel="icon" href="https://img.freepik.com/premium-vector/kk-logo-vector_724449-190.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Add Font Awesome CDN for better icons -->
+    <!-- Font Awesome -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
     />
-    <title>myPortfolio</title>
+    <title>Dashboard | My Portfolio</title>
+    <style>
+      /* GitHub's exact dark theme colors and styles for the contribution graph */
+      .contribution-graph text { fill: #8b949e; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+      .contribution-graph rect:hover { stroke: #1f6feb; stroke-width: 2px; }
+      .legend { display: flex; align-items: center; justify-content: center; gap: 4px; }
+      .legend-color { width: 10px; height: 10px; border-radius: 2px; }
+      .day { fill: #161b22; } /* background squares if any */
+    </style>
   </head>
   <body class="bg-gray-100">
-    <!-- Sidebar -->
+    <!-- Sidebar (same as before, with Dashboard highlighted) -->
     <aside
       id="sidebar-multi-level-sidebar"
       class="fixed top-0 left-0 z-40 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0"
       aria-label="Sidebar"
     >
       <div class="h-full px-3 py-4 overflow-y-auto bg-[#2b2b2d] text-white">
-        <!-- Profile Section -->
         <div class="flex flex-col items-center mb-6">
-          <!-- Avatar Image with Green Border -->
           <img
             src="/Images/profile.jpg"
             alt="Profile Picture"
             class="w-24 h-24 rounded-full border-4 border-green-500"
           />
-          <h1
-            class="mt-3 text-lg font-semibold text-white flex items-center gap-2"
-          >
+          <h1 class="mt-3 text-lg font-semibold text-white flex items-center gap-2">
             Kristian Koome
-            <i
-              class="fas fa-check-circle text-green-500 text-base"
-              title="Verified"
-            ></i>
+            <i class="fas fa-check-circle text-green-500 text-base" title="Verified"></i>
           </h1>
-
-          <!-- Added name -->
           <h2 class="mt-1 text-sm font-semibold text-white">
             originalkristiann@gmail.com
           </h2>
-          <button
-            class="mt-2 px-4 py-1 text-sm font-medium text-white bg-green-600 rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400"
-          >
+          <a href="mailto:originalkristiann@gmail.com?subject=Job Inquiry" class="mt-2 inline-block text-center px-4 py-1 text-sm font-medium text-white bg-green-600 rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400">
             For Hire
-          </button>
+          </a>
         </div>
 
-        <!-- Navigation -->
         <ul class="space-y-2 font-medium">
-          <li>
-            <a
-              href="index.html"
-              class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
-            >
-              <!-- Updated Icon (Home) -->
-              <i class="fas fa-home w-5 h-5 text-white"></i>
-              <span class="ml-3">Home</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="about.html"
-              class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
-            >
-              <!-- Updated Icon (About) -->
-              <i class="fas fa-user w-5 h-5 text-white"></i>
-              <span class="ml-3">About</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="achievements.html"
-              class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
-            >
-              <!-- Updated Icon (Achievements) -->
-              <i class="fas fa-trophy w-5 h-5 text-white"></i>
-              <span class="ml-3">Achievements</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="projects.html"
-              class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
-            >
-              <!-- Updated Icon (Projects) -->
-              <i class="fas fa-briefcase w-5 h-5 text-white"></i>
-              <span class="ml-3">Projects</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="dashboard.html"
-              class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
-            >
-              <!-- Updated Icon (Dashboard) -->
-              <i class="fas fa-chart-line w-5 h-5 text-white"></i>
-              <span class="ml-3">Dashboard</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="chatroom.html"
-              class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
-            >
-              <!-- Updated Icon (Chat) -->
-              <i class="fas fa-comments w-5 h-5 text-white"></i>
-              <span class="ml-3">Chatroom</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="contact.html"
-              class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"
-            >
-              <!-- Updated Icon (Contact) -->
-              <i class="fas fa-envelope w-5 h-5 text-white"></i>
-              <span class="ml-3">Contact</span>
-            </a>
-          </li>
+          <li><a href="index.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"><i class="fas fa-home w-5 h-5 text-white"></i><span class="ml-3">Home</span></a></li>
+          <li><a href="about.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"><i class="fas fa-user w-5 h-5 text-white"></i><span class="ml-3">About</span></a></li>
+          <li><a href="achievements.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"><i class="fas fa-trophy w-5 h-5 text-white"></i><span class="ml-3">Achievements</span></a></li>
+          <li><a href="projects.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"><i class="fas fa-briefcase w-5 h-5 text-white"></i><span class="ml-3">Projects</span></a></li>
+          <li><a href="dashboard.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d] bg-[#3b3b3d]"><i class="fas fa-chart-line w-5 h-5 text-white"></i><span class="ml-3">Dashboard</span></a></li>
+          <li><a href="chatroom.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"><i class="fas fa-comments w-5 h-5 text-white"></i><span class="ml-3">Chatroom</span></a></li>
+          <li><a href="contact.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"><i class="fas fa-envelope w-5 h-5 text-white"></i><span class="ml-3">Contact</span></a></li>
         </ul>
       </div>
     </aside>
 
+    <!-- Main Content -->
     <main class="ml-72 p-6 min-h-screen bg-[#2b2b2d] text-white">
-      
+      <section class="max-w-5xl mx-auto py-12">
+        <h2 class="text-4xl font-bold mb-10 text-center">GitHub Contributions</h2>
+
+        <div class="bg-[#0d1117] rounded-xl p-8 shadow-2xl border border-gray-800">
+          <!-- The calendar will be injected here -->
+          <div class="calendar contribution-graph mx-auto"></div>
+
+          <!-- Exact GitHub layout elements -->
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-center mt-6 text-sm text-gray-400">
+            <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile" class="underline hover:text-white mb-4 md:mb-0">
+              Learn how we count contributions
+            </a>
+
+            <div class="legend">
+              <span>Less</span>
+              <span class="legend-color" style="background-color: #161b22;"></span>
+              <span class="legend-color" style="background-color: #0e4429;"></span>
+              <span class="legend-color" style="background-color: #006d32;"></span>
+              <span class="legend-color" style="background-color: #26a641;"></span>
+              <span class="legend-color" style="background-color: #39d353;"></span>
+              <span>More</span>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
+    <!-- GitHub Calendar Library (exact replica) -->
+    <script src="https://cdn.jsdelivr.net/npm/github-calendar@2.2.3/dist/github-calendar.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-calendar@2.2.3/dist/github-calendar.css" />
+
+    <script>
+      GitHubCalendar(".calendar", "Kristiann001", {
+        responsive: true,
+        tooltips: true,
+        global_stats: false  // Hide streaks to match pure graph look
+      });
+    </script>
   </body>
 </html>
