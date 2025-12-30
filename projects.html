@@ -3,454 +3,464 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="icon"
-      href="https://img.freepik.com/premium-vector/kk-logo-vector_724449-190.jpg"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="icon" href="https://img.freepik.com/premium-vector/kk-logo-vector_724449-190.jpg" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      rel="stylesheet"
-    />
-    <title>myPortfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <title>myPortfolio - Projects</title>
   </head>
   <body class="bg-gray-100">
     <!-- Sidebar -->
-    <aside
-      id="sidebar-multi-level-sidebar"
-      class="fixed top-0 left-0 z-40 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0"
-      aria-label="Sidebar"
-    >
+    <aside id="sidebar-multi-level-sidebar" class="fixed top-0 left-0 z-40 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0">
       <div class="h-full px-3 py-4 overflow-y-auto bg-[#2b2b2d] text-white">
-        <!-- Profile Section -->
         <div class="flex flex-col items-center mb-6">
-          <img
-            src="/Images/profile.jpg"
-            alt="Profile Picture"
-            class="w-24 h-24 rounded-full border-4 border-green-500"
-          />
+          <img src="/Images/profile.jpg" alt="Profile Picture" class="w-24 h-24 rounded-full border-4 border-green-500" />
           <h1 class="mt-3 text-lg font-semibold text-white flex items-center gap-2">
             Kristian Koome
             <i class="fas fa-check-circle text-green-500 text-base" title="Verified"></i>
           </h1>
-          <h2 class="mt-1 text-sm font-semibold text-white">
-            originalkristiann@gmail.com
-          </h2>
-          <button
-            onclick="document.getElementById('hire-modal').classList.remove('hidden')"
-            class="mt-2 inline-block text-center px-4 py-1 text-sm font-medium text-white bg-green-600 rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 cursor-pointer"
-          >
+          <h2 class="mt-1 text-sm font-semibold text-white">originalkristiann@gmail.com</h2>
+          <button onclick="document.getElementById('hire-modal').classList.remove('hidden')" class="mt-2 inline-block text-center px-4 py-1 text-sm font-medium text-white bg-green-600 rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 cursor-pointer">
             For Hire
           </button>
         </div>
-
-        <!-- Navigation -->
         <ul class="space-y-2 font-medium">
-          <li>
-            <a href="index.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]">
-              <i class="fas fa-home w-5 h-5 text-white"></i>
-              <span class="ml-3">Home</span>
-            </a>
-          </li>
-          <li>
-            <a href="about.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]">
-              <i class="fas fa-user w-5 h-5 text-white"></i>
-              <span class="ml-3">About</span>
-            </a>
-          </li>
-          <li>
-            <a href="achievements.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]">
-              <i class="fas fa-trophy w-5 h-5 text-white"></i>
-              <span class="ml-3">Achievements</span>
-            </a>
-          </li>
-          <li>
-            <a href="projects.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]">
-              <i class="fas fa-briefcase w-5 h-5 text-white"></i>
-              <span class="ml-3">Projects</span>
-            </a>
-          </li>
-          <li>
-            <a href="contact.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]">
-              <i class="fas fa-envelope w-5 h-5 text-white"></i>
-              <span class="ml-3">Contact</span>
-            </a>
-          </li>
+          <li><a href="index.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"><i class="fas fa-home w-5 h-5 text-white"></i><span class="ml-3">Home</span></a></li>
+          <li><a href="about.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"><i class="fas fa-user w-5 h-5 text-white"></i><span class="ml-3">About</span></a></li>
+          <li><a href="achievements.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"><i class="fas fa-trophy w-5 h-5 text-white"></i><span class="ml-3">Achievements</span></a></li>
+          <li><a href="projects.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"><i class="fas fa-briefcase w-5 h-5 text-white"></i><span class="ml-3">Projects</span></a></li>
+          <li><a href="contact.html" class="flex items-center p-2 rounded-lg hover:bg-[#3b3b3d]"><i class="fas fa-envelope w-5 h-5 text-white"></i><span class="ml-3">Contact</span></a></li>
         </ul>
       </div>
     </aside>
 
     <!-- Main Content -->
-    <main class="sm:ml-72 p-6 min-h-screen bg-[#2b2b2d] text-white pb-20">
+    <main class="sm:ml-72 p-8 min-h-screen bg-[#2b2b2d] text-white pb-20">
       <section class="max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold mb-2">My Projects</h2>
-        <p class="text-white/80 mb-6">
-          A showcase of projects I've built — from full-stack applications to creative solutions. Each demonstrates real-world problem-solving and modern technologies.
-        </p>
-
-        <!-- Add Project Button -->
-        <button
-          onclick="openProjectModal()"
-          class="mb-6 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
-        >
-          Add Project
-        </button>
+        <div class="flex flex-col lg:flex-row justify-between items-center gap-4 mb-6">
+          <div>
+            <h2 class="text-3xl font-bold mb-2">My Projects</h2>
+             <p class="text-white/80 mb-6">
+               A showcase of projects I've built — from full-stack applications to creative solutions. Each demonstrates real-world problem-solving and modern      technologies.
+             </p>
+          </div>
+          <div class="w-full lg:w-auto flex gap-4">
+             <div class="relative w-full md:w-64">
+               <input type="text" id="project-search" onkeyup="filterProjects()" placeholder="Search projects..." 
+                      class="w-full pl-10 pr-4 py-2 bg-[#3a3a3c] border border-white/10 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors" />
+               <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+             </div>
+             <button onclick="openProjectModal()" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition whitespace-nowrap">
+               <i class="fas fa-plus mr-2"></i>Add Project
+             </button>
+          </div>
+        </div>
 
         <hr class="border-t border-white/20 mb-12" />
 
-        <!-- Responsive Grid for Projects -->
-        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Projects will be dynamically loaded here -->
+        <div id="loading-spinner" class="text-center py-8 hidden">
+          <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500"></div>
+          <p class="mt-4 text-white/70">Loading projects...</p>
         </div>
+
+        <div id="empty-state" class="text-center py-12">
+          <i class="fas fa-briefcase text-6xl text-gray-500 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">No Projects Yet</h3>
+          <p class="text-white/70 mb-6">Add your first project to showcase your work!</p>
+          <button onclick="openProjectModal()" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition">
+            <i class="fas fa-plus mr-2"></i>Add First Project
+          </button>
+        </div>
+
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
       </section>
     </main>
 
     <!-- Bottom Navigation (Mobile Only) -->
-    <nav
-      class="fixed bottom-0 left-0 right-0 z-50 bg-[#2b2b2d] border-t border-gray-700 text-white flex justify-around items-center h-14 sm:hidden"
-    >
-      <a href="index.html" class="flex flex-col items-center justify-center text-xs hover:text-green-400">
-        <i class="fas fa-home text-lg"></i>
-        <span>Home</span>
+    <nav class="fixed bottom-0 left-0 right-0 z-50 bg-[#2b2b2d]/95 backdrop-blur-md border-t border-white/10 flex justify-around items-center h-16 sm:hidden px-2">
+      <a href="index.html" class="flex flex-col items-center justify-center w-full h-full text-white/60 hover:text-green-400 transition-colors">
+        <i class="fas fa-home text-lg mb-1"></i>
+        <span class="text-[10px]">Home</span>
       </a>
-      <a href="about.html" class="flex flex-col items-center justify-center text-xs hover:text-green-400">
-        <i class="fas fa-user text-lg"></i>
-        <span>About</span>
+      <a href="about.html" class="flex flex-col items-center justify-center w-full h-full text-white/60 hover:text-green-400 transition-colors">
+        <i class="fas fa-user text-lg mb-1"></i>
+        <span class="text-[10px]">About</span>
       </a>
-      <a href="achievements.html" class="flex flex-col items-center justify-center text-xs hover:text-green-400">
-        <i class="fas fa-trophy text-lg"></i>
-        <span>Awards</span>
+      <a href="achievements.html" class="flex flex-col items-center justify-center w-full h-full text-white/60 hover:text-green-400 transition-colors">
+        <i class="fas fa-trophy text-lg mb-1"></i>
+        <span class="text-[10px]">Awards</span>
       </a>
-      <a href="contact.html" class="flex flex-col items-center justify-center text-xs hover:text-green-400">
-        <i class="fas fa-envelope text-lg"></i>
-        <span>Contact</span>
+      <a href="projects.html" class="flex flex-col items-center justify-center w-full h-full text-green-500">
+        <i class="fas fa-briefcase text-lg mb-1"></i>
+        <span class="text-[10px]">Projects</span>
+      </a>
+      <a href="contact.html" class="flex flex-col items-center justify-center w-full h-full text-white/60 hover:text-green-400 transition-colors">
+        <i class="fas fa-envelope text-lg mb-1"></i>
+        <span class="text-[10px]">Contact</span>
       </a>
     </nav>
+
+    <!-- Admin Password Modal -->
+    <div id="admin-password-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-70 flex items-center justify-center z-50 px-4">
+      <div class="bg-[#2b2b2d] rounded-xl shadow-2xl w-full max-w-md p-8 relative">
+        <button onclick="closeAdminPasswordModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
+        <h2 class="text-2xl font-bold text-green-400 mb-6 text-center">Admin Access Required</h2>
+        <form id="admin-password-form">
+          <div class="mb-6">
+            <label class="block text-white mb-2" for="admin-password">Enter Admin Password</label>
+            <input type="password" id="admin-password" name="password" required autocomplete="off"
+              class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+              placeholder="••••••••••••••••" />
+          </div>
+          <div class="flex justify-center gap-4">
+            <button type="button" onclick="closeAdminPasswordModal()" class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition">Cancel</button>
+            <button type="submit" class="px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition">Confirm</button>
+          </div>
+          <p id="admin-status" class="mt-4 text-center hidden"></p>
+        </form>
+      </div>
+    </div>
 
     <!-- Hire Modal -->
     <div id="hire-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-70 flex items-center justify-center z-50 px-4">
       <div class="bg-[#2b2b2d] rounded-xl shadow-2xl w-full max-w-lg p-8 relative">
-        <button
-          onclick="document.getElementById('hire-modal').classList.add('hidden')"
-          class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl"
-        >
-          &times;
-        </button>
-
+        <button onclick="document.getElementById('hire-modal').classList.add('hidden')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
         <h2 class="text-2xl font-bold text-green-400 mb-6 text-center">Get in Touch</h2>
-
         <form id="hire-form">
           <div class="mb-4">
             <label class="block text-white mb-1" for="hire-name">Name</label>
-            <input
-              type="text"
-              id="hire-name"
-              name="name"
-              class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-              placeholder="Your name (optional)"
-            />
+            <input type="text" id="hire-name" name="name" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Your name (optional)" />
           </div>
-
           <div class="mb-4">
             <label class="block text-white mb-1" for="hire-email">Email <span class="text-red-400">*</span></label>
-            <input
-              type="email"
-              id="hire-email"
-              name="email"
-              required
-              class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-              placeholder="your@email.com"
-            />
+            <input type="email" id="hire-email" name="email" required class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="your@email.com" />
           </div>
-
           <div class="mb-4">
             <label class="block text-white mb-1" for="hire-subject">RE / Subject</label>
-            <input
-              type="text"
-              id="hire-subject"
-              name="subject"
-              class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-              placeholder="e.g., Job Opportunity, Freelance Project"
-            />
+            <input type="text" id="hire-subject" name="subject" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="e.g., Job Opportunity, Freelance Project" />
           </div>
-
           <div class="mb-6">
             <label class="block text-white mb-1" for="hire-message">Message <span class="text-red-400">*</span></label>
-            <textarea
-              id="hire-message"
-              name="message"
-              required
-              rows="5"
-              class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 resize-none"
-              placeholder="Tell me about the opportunity or project..."
-            ></textarea>
+            <textarea id="hire-message" name="message" required rows="5" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 resize-none" placeholder="Tell me about the opportunity or project..."></textarea>
           </div>
-
           <div class="flex justify-center">
-            <button
-              type="submit"
-              class="px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition"
-            >
-              Send Message
-            </button>
+            <button type="submit" class="px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition">Send Message</button>
           </div>
-
           <p id="hire-status" class="mt-4 text-center text-white"></p>
         </form>
       </div>
     </div>
 
-    <!-- Project Modal (for Add/Edit) -->
+    <!-- Project Modal -->
     <div id="project-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-70 flex items-center justify-center z-50 px-4">
       <div class="bg-[#2b2b2d] rounded-xl shadow-2xl w-full max-w-lg p-8 relative">
-        <button
-          onclick="closeProjectModal()"
-          class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl"
-        >
-          &times;
-        </button>
-
+        <button onclick="closeProjectModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
         <h2 id="project-modal-title" class="text-2xl font-bold text-green-400 mb-6 text-center">Add Project</h2>
-
         <form id="project-form">
           <div class="mb-4">
             <label class="block text-white mb-1" for="proj-title">Project Title <span class="text-red-400">*</span></label>
-            <input
-              type="text"
-              id="proj-title"
-              name="title"
-              required
-              class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-              placeholder="e.g., E-Commerce Platform"
-            />
+            <input type="text" id="proj-title" name="title" required class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="e.g., E-Commerce Platform" />
           </div>
-
           <div class="mb-4">
             <label class="block text-white mb-1" for="proj-description">Description <span class="text-red-400">*</span></label>
-            <textarea
-              id="proj-description"
-              name="description"
-              required
-              rows="3"
-              class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 resize-none"
-              placeholder="Brief description of the project and technologies used"
-            ></textarea>
+            <textarea id="proj-description" name="description" required rows="3" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 resize-none" placeholder="Brief description of the project and technologies used"></textarea>
           </div>
-
           <div class="mb-4">
-            <label class="block text-white mb-1" for="proj-image">Project Image URL <span class="text-red-400">*</span></label>
-            <input
-              type="url"
-              id="proj-image"
-              name="image"
-              required
-              class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-              placeholder="https://example.com/project-screenshot.jpg"
-            />
+            <label class="block text-white mb-1">Project Image</label>
+            <div class="flex gap-4 mb-2">
+              <label class="flex items-center"><input type="radio" name="imageType" value="file" checked class="mr-2"> Upload File</label>
+              <label class="flex items-center"><input type="radio" name="imageType" value="url" class="mr-2"> Use URL</label>
+            </div>
+            <div id="file-upload-section">
+              <input type="file" id="proj-image-file" name="image" accept="image/*" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" />
+              <p class="text-xs text-gray-400 mt-1">Accepted: Images (max 10MB)</p>
+            </div>
+            <div id="url-upload-section" class="hidden">
+              <input type="url" id="proj-image-url" name="imageUrl" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="https://example.com/project-screenshot.jpg" />
+            </div>
           </div>
-
           <div class="mb-6">
             <label class="block text-white mb-1" for="proj-link">Live Demo / GitHub Link</label>
-            <input
-              type="url"
-              id="proj-link"
-              name="link"
-              class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-              placeholder="https://your-project-live.com or https://github.com/..."
-            />
+            <input type="url" id="proj-link" name="link" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="https://your-project-live.com or https://github.com/..." />
           </div>
-
           <div class="flex justify-center">
-            <button
-              type="submit"
-              class="px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition"
-            >
-              Save Project
-            </button>
+            <button type="submit" class="px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition">Save Project</button>
           </div>
-
           <p id="proj-status" class="mt-4 text-center text-white"></p>
         </form>
       </div>
     </div>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 
-    <!-- Hire Form Script (unchanged) -->
     <script>
-      const hireForm = document.getElementById('hire-form');
-      const statusEl = document.getElementById('hire-status');
+      const API_BASE = 'http://localhost:5000';
+      let editingId = null;
 
-      hireForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const formData = new FormData(hireForm);
-        const name = formData.get('name') || 'Anonymous';
-        const email = formData.get('email');
-        const subject = formData.get('subject');
-        const message = formData.get('message');
-
-        let fullMessage = message;
-        if (subject) {
-          fullMessage = `Subject: ${subject}\n\n${fullMessage}`;
-        }
-
-        statusEl.textContent = 'Sending...';
-        statusEl.classList.remove('text-red-400', 'text-green-400');
-
-        try {
-          const res = await fetch('/send', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email, message: fullMessage }),
+      function closeAdminPasswordModal() {
+        document.getElementById('admin-password-modal').classList.add('hidden');
+        document.getElementById('admin-password-form').reset();
+        document.getElementById('admin-status').classList.add('hidden');
+        document.getElementById('admin-status').textContent = '';
+      }
+      
+      function setupImageTypeToggle() {
+        const radios = document.querySelectorAll('input[name="imageType"]');
+        const fileSection = document.getElementById('file-upload-section');
+        const urlSection = document.getElementById('url-upload-section');
+        radios.forEach(radio => {
+          radio.addEventListener('change', function() {
+            if (this.value === 'file') {
+              fileSection.classList.remove('hidden');
+              urlSection.classList.add('hidden');
+            } else {
+              fileSection.classList.add('hidden');
+              urlSection.classList.remove('hidden');
+            }
           });
-
-          const data = await res.json();
-
-          if (data.success) {
-            statusEl.textContent = "Message sent successfully! I'll get back to you soon.";
-            statusEl.classList.add('text-green-400');
-            hireForm.reset();
-          } else {
-            throw new Error(data.error || 'Unknown error');
-          }
-        } catch (err) {
-          statusEl.textContent = 'Error sending message. Please try again or email me directly.';
-          statusEl.classList.add('text-red-400');
-          console.error(err);
-        }
-      });
-    </script>
-
-    <!-- Projects Script -->
-    <script>
-      let editingProjId = null;
+        });
+      }
 
       function openProjectModal(id = null) {
-        const modal = document.getElementById('project-modal');
-        const titleInput = document.getElementById('proj-title');
-        const descInput = document.getElementById('proj-description');
-        const imageInput = document.getElementById('proj-image');
-        const linkInput = document.getElementById('proj-link');
-        const modalTitle = document.getElementById('project-modal-title');
+        document.getElementById('admin-password-modal').classList.remove('hidden');
+        document.getElementById('admin-password').focus();
 
-        editingProjId = id;
-        if (id) {
-          modalTitle.textContent = 'Edit Project';
-          // In real app: fetch project data and pre-fill
-        } else {
-          modalTitle.textContent = 'Add Project';
-          titleInput.value = '';
-          descInput.value = '';
-          imageInput.value = '';
-          linkInput.value = '';
-        }
-        modal.classList.remove('hidden');
+        const form = document.getElementById('admin-password-form');
+        const status = document.getElementById('admin-status');
+        form.onsubmit = null;
+
+        form.onsubmit = async (e) => {
+          e.preventDefault();
+          status.textContent = 'Verifying...';
+          status.className = 'mt-4 text-center text-white';
+          status.classList.remove('hidden');
+
+          const password = document.getElementById('admin-password').value;
+
+          try {
+            const res = await fetch(`${API_BASE}/admin/verify`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ password })
+            });
+            const data = await res.json();
+
+            if (data.success) {
+              closeAdminPasswordModal();
+              editingId = id;
+              document.getElementById('project-modal-title').textContent = id ? 'Edit Project' : 'Add Project';
+              document.getElementById('project-form').reset();
+              document.getElementById('proj-status').textContent = '';
+              
+              document.querySelector('input[name="imageType"][value="file"]').checked = true;
+              document.getElementById('file-upload-section').classList.remove('hidden');
+              document.getElementById('url-upload-section').classList.add('hidden');
+              
+              document.getElementById('project-modal').classList.remove('hidden');
+              setupImageTypeToggle();
+            } else {
+              status.textContent = data.error || 'Incorrect password';
+              status.className = 'mt-4 text-center text-red-400';
+            }
+          } catch (err) {
+            status.textContent = 'Connection error. Is the server running?';
+            status.className = 'mt-4 text-center text-red-400';
+          }
+        };
       }
 
       function closeProjectModal() {
         document.getElementById('project-modal').classList.add('hidden');
-        editingProjId = null;
       }
 
-      async function loadProjects() {
-        try {
-          const res = await fetch('/projects');
-          const projects = await res.json();
-          const grid = document.getElementById('projects-grid');
+      let allProjects = [];
+
+      function filterProjects() {
+        const query = document.getElementById('project-search').value.toLowerCase();
+        const filtered = allProjects.filter(p => 
+          p.title.toLowerCase().includes(query) || 
+          p.description.toLowerCase().includes(query)
+        );
+        renderProjects(filtered);
+      }
+
+      function renderProjects(projects) {
+        const grid = document.getElementById('projects-grid');
+        const loading = document.getElementById('loading-spinner');
+        const empty = document.getElementById('empty-state');
+
+        loading.classList.add('hidden');
+
+        if (projects.length === 0) {
+          empty.classList.remove('hidden');
           grid.innerHTML = '';
-          projects.forEach(proj => {
-            const linkHtml = proj.link ? `<a href="${proj.link}" target="_blank" class="text-green-400 hover:underline">View Live / GitHub →</a>` : '';
-            const card = `
-              <div class="bg-[#3a3a3c] rounded-xl shadow-lg overflow-hidden">
-                <img src="${proj.image}" alt="${proj.title}" class="w-full h-48 object-cover" />
-                <div class="p-6">
-                  <h3 class="text-xl font-semibold mb-2">${proj.title}</h3>
-                  <p class="text-white/70 text-sm mb-4">${proj.description}</p>
-                  ${linkHtml}
-                  <div class="mt-4">
-                    <button onclick="openProjectModal('${proj._id}')" class="mr-3 text-blue-400 hover:underline text-sm">Edit</button>
-                    <button onclick="deleteProject('${proj._id}')" class="text-red-400 hover:underline text-sm">Delete</button>
+          return;
+        }
+
+        empty.classList.add('hidden');
+        grid.innerHTML = '';
+
+        projects.forEach(proj => {
+          const linkHtml = proj.link 
+            ? `<a href="${proj.link}" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-white text-sm font-medium rounded-lg transition-all shadow-lg hover:shadow-green-900/30 transform hover:-translate-y-0.5">
+                 <span>View Live</span>
+                 <i class="fas fa-external-link-alt text-xs"></i>
+               </a>` 
+            : `<span class="px-4 py-2 bg-gray-700/50 text-gray-500 text-sm font-medium rounded-lg cursor-not-allowed border border-white/5">No Link</span>`;
+
+          grid.innerHTML += `
+            <div class="group bg-[#3a3a3c] bg-gradient-to-br from-[#3a3a3c] to-[#2b2b2d] rounded-2xl overflow-hidden border border-white/10 hover:border-green-500/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] flex flex-col h-full ring-1 ring-white/5">
+              <!-- Image Container -->
+              <div class="relative h-56 overflow-hidden">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300 z-10"></div>
+                <!-- Gradient Overlay for Contrast -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#2b2b2d] to-transparent opacity-80 z-10 bottom-0 h-2/3"></div>
+                
+                <img src="${proj.image}" alt="${proj.title}" 
+                     class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out" 
+                     onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400'" />
+                
+                <!-- Floating Icons (Optional) -->
+                <div class="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+                  <div class="bg-black/50 backdrop-blur-md rounded-lg p-1.5 border border-white/10 flex gap-1">
+                    <button onclick="openProjectModal('${proj._id}')" class="p-2 text-white hover:text-blue-400 transition-colors rounded hover:bg-white/10" title="Edit">
+                      <i class="fas fa-pen text-sm"></i>
+                    </button>
+                    <button onclick="deleteProject('${proj._id}')" class="p-2 text-white hover:text-red-400 transition-colors rounded hover:bg-white/10" title="Delete">
+                      <i class="fas fa-trash-alt text-sm"></i>
+                    </button>
                   </div>
                 </div>
               </div>
-            `;
-            grid.innerHTML += card;
-          });
-        } catch (err) {
-          console.error(err);
+              
+              <!-- Content -->
+              <div class="p-6 flex flex-col flex-grow relative z-20">
+                <h3 class="text-xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors tracking-tight">${proj.title}</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow line-clamp-3">${proj.description}</p>
+                
+                <div class="mt-auto pt-5 border-t border-white/5 flex items-center justify-between">
+                   <!-- Mobile Admin Controls (Visible if needed, but mainly hidden by hover on desktop) -->
+                   <div class="text-xs text-gray-600 font-mono">
+                      <!-- Date or Tech stack could go here -->
+                   </div>
+                   
+                   <div class="ml-auto">
+                     ${linkHtml}
+                   </div>
+                </div>
+              </div>
+            </div>`;
+        });
+      }
+
+      async function loadProjects() {
+        document.getElementById('loading-spinner').classList.remove('hidden');
+        document.getElementById('empty-state').classList.add('hidden');
+
+        try {
+          const res = await fetch(`${API_BASE}/projects`);
+          if (!res.ok) throw new Error();
+          const data = await res.json();
+          allProjects = data; // Store full list for searching
+          renderProjects(data);
+        } catch {
+          document.getElementById('loading-spinner').classList.add('hidden');
+          document.getElementById('empty-state').classList.remove('hidden');
         }
       }
 
-      const projForm = document.getElementById('project-form');
-      projForm.addEventListener('submit', async (e) => {
+      document.getElementById('project-form').addEventListener('submit', async (e) => {
         e.preventDefault();
+        const formData = new FormData(e.target);
+        const title = formData.get('title')?.trim();
+        const description = formData.get('description')?.trim();
+        const link = formData.get('link')?.trim();
+        const imageType = formData.get('imageType');
 
-        const formData = new FormData(projForm);
-        const data = {
-          title: formData.get('title'),
-          description: formData.get('description'),
-          image: formData.get('image'),
-          link: formData.get('link') || ''
-        };
+        if (!title || !description) {
+          document.getElementById('proj-status').textContent = 'Title and description are required';
+          document.getElementById('proj-status').className = 'mt-4 text-center text-red-400';
+          return;
+        }
+        
+        const data = new FormData();
+        data.append('title', title);
+        data.append('description', description);
+        if (link) data.append('link', link);
+        
+        if (imageType === 'file') {
+             const file = formData.get('image');
+             if (file && file.size > 0) data.append('image', file);
+        } else {
+             const url = formData.get('imageUrl')?.trim();
+             if (url) data.append('imageUrl', url);
+        }
 
         const status = document.getElementById('proj-status');
         status.textContent = 'Saving...';
+        status.className = 'mt-4 text-center text-white';
 
         try {
-          let res;
-          if (editingProjId) {
-            res = await fetch(`/projects/${editingProjId}`, {
-              method: 'PUT',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(data)
-            });
-          } else {
-            res = await fetch('/projects', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(data)
-            });
-          }
-
-          if (res.ok) {
-            status.textContent = 'Project saved successfully!';
-            status.classList.add('text-green-400');
-            projForm.reset();
-            closeProjectModal();
-            loadProjects();
-          } else {
-            throw new Error('Failed to save');
-          }
-        } catch (err) {
-          status.textContent = 'Error saving project.';
-          status.classList.add('text-red-400');
-          console.error(err);
+          const url = editingId ? `${API_BASE}/projects/${editingId}` : `${API_BASE}/projects`;
+          const res = await fetch(url, {
+            method: editingId ? 'PUT' : 'POST',
+            body: data // Sending FormData directly handles multipart/form-data
+          });
+          if (!res.ok) throw new Error();
+          status.textContent = 'Project saved!';
+          status.className = 'mt-4 text-center text-green-400';
+          closeProjectModal();
+          loadProjects();
+        } catch {
+          status.textContent = 'Failed to save project. Please try again.';
+          status.className = 'mt-4 text-center text-red-400';
         }
       });
 
       async function deleteProject(id) {
-        if (confirm('Are you sure you want to delete this project?')) {
-          try {
-            const res = await fetch(`/projects/${id}`, { method: 'DELETE' });
-            if (res.ok) {
-              loadProjects();
-            } else {
-              throw new Error('Failed to delete');
-            }
-          } catch (err) {
-            console.error(err);
-            alert('Error deleting project.');
-          }
+        if (!confirm('Delete this project?')) return;
+        try {
+          const res = await fetch(`${API_BASE}/projects/${id}`, { method: 'DELETE' });
+          if (!res.ok) throw new Error();
+          loadProjects();
+        } catch {
+          alert('Failed to delete project.');
         }
       }
 
-      // Load projects on page load
+      // Hire form submission
+      document.getElementById('hire-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const name = formData.get('name')?.trim() || 'Anonymous';
+        const email = formData.get('email')?.trim();
+        const subject = formData.get('subject')?.trim();
+        const message = formData.get('message')?.trim();
+
+        const status = document.getElementById('hire-status');
+        status.textContent = 'Sending...';
+        status.className = 'mt-4 text-center text-white';
+
+        try {
+          const res = await fetch(`${API_BASE}/send`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, subject, message })
+          });
+          const data = await res.json();
+          if (data.success) {
+            status.textContent = "Message sent! I'll get back to you soon.";
+            status.className = 'mt-4 text-center text-green-400';
+            e.target.reset();
+          } else {
+            throw new Error();
+          }
+        } catch {
+          status.innerHTML = `Failed to send. Email me directly: <a href="mailto:originalkristiann@gmail.com" class="text-green-400 underline">originalkristiann@gmail.com</a>`;
+          status.className = 'mt-4 text-center text-red-400';
+        }
+      });
+
       loadProjects();
     </script>
   </body>

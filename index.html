@@ -122,10 +122,38 @@
 
     <!-- Main Content -->
     <main class="sm:ml-72 p-6 min-h-screen bg-[#2b2b2d] text-white pb-20">
-      <h1 class="text-3xl font-extrabold mb-2">Hi, I am Kristian Koome!</h1>
-      <h2 class="text-lg font-medium mb-4 text-green-400">
-        Full Stack MERN Developer
-      </h2>
+      <!-- Header with Resume Buttons -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+        <div>
+          <h1 class="text-3xl font-extrabold mb-2">Hi, I am Kristian Koome!</h1>
+          <h2 class="text-lg font-medium mb-4 text-green-400">
+            Full Stack MERN Developer
+          </h2>
+        </div>
+        
+        <!-- Resume Download Button -->
+        <div class="flex gap-3">
+          <!-- PDF Resume -->
+          <a 
+            href="/resume.pdf" 
+            download="Kristian_Koome_Resume.pdf"
+            class="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
+          >
+            <i class="fas fa-file-pdf text-lg"></i>
+            <span>Resume (PDF)</span>
+          </a>
+          
+          <!-- Word Resume -->
+          <a 
+            href="/resume.docx" 
+            download="Kristian_Koome_Resume.docx"
+            class="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
+          >
+            <i class="fas fa-file-word text-lg"></i>
+            <span>Resume (Word)</span>
+          </a>
+        </div>
+      </div>
 
       <ul class="flex list-disc pl-5 gap-x-10 mb-6">
         <li>Based in Nairobi, Kenya</li>
@@ -220,7 +248,7 @@
       <div class="bg-gray-800 border border-gray-700 rounded-2xl p-6 shadow-lg w-full">
         <div class="flex gap-3 mb-2">
           <i class="fas fa-handshake text-green-400 text-xl"></i>
-          <h2 class="text-xl font-semibold text-white">Let’s work together</h2>
+          <h2 class="text-xl font-semibold text-white">Let's work together</h2>
         </div>
         <p class="text-white/90 mb-4">
           I am open for freelancing projects, feel free to email me to see how
@@ -240,18 +268,26 @@
     </main>
 
     <!-- Bottom Navigation (Mobile Only) -->
-    <nav class="fixed bottom-0 left-0 right-0 z-50 bg-[#2b2b2d] border-t border-gray-700 text-white flex justify-around items-center h-14 sm:hidden">
-      <a href="index.html" class="flex flex-col items-center justify-center text-xs hover:text-green-400">
-        <i class="fas fa-home text-lg"></i><span>Home</span>
+    <nav class="fixed bottom-0 left-0 right-0 z-50 bg-[#2b2b2d]/95 backdrop-blur-md border-t border-white/10 flex justify-around items-center h-16 sm:hidden px-2">
+      <a href="index.html" class="flex flex-col items-center justify-center w-full h-full text-green-500">
+        <i class="fas fa-home text-lg mb-1"></i>
+        <span class="text-[10px]">Home</span>
       </a>
-      <a href="about.html" class="flex flex-col items-center justify-center text-xs hover:text-green-400">
-        <i class="fas fa-user text-lg"></i><span>About</span>
+      <a href="about.html" class="flex flex-col items-center justify-center w-full h-full text-white/60 hover:text-green-400 transition-colors">
+        <i class="fas fa-user text-lg mb-1"></i>
+        <span class="text-[10px]">About</span>
       </a>
-      <a href="achievements.html" class="flex flex-col items-center justify-center text-xs hover:text-green-400">
-        <i class="fas fa-trophy text-lg"></i><span>Awards</span>
+      <a href="achievements.html" class="flex flex-col items-center justify-center w-full h-full text-white/60 hover:text-green-400 transition-colors">
+        <i class="fas fa-trophy text-lg mb-1"></i>
+        <span class="text-[10px]">Awards</span>
       </a>
-      <a href="contact.html" class="flex flex-col items-center justify-center text-xs hover:text-green-400">
-        <i class="fas fa-envelope text-lg"></i><span>Contact</span>
+      <a href="projects.html" class="flex flex-col items-center justify-center w-full h-full text-white/60 hover:text-green-400 transition-colors">
+        <i class="fas fa-briefcase text-lg mb-1"></i>
+        <span class="text-[10px]">Projects</span>
+      </a>
+      <a href="contact.html" class="flex flex-col items-center justify-center w-full h-full text-white/60 hover:text-green-400 transition-colors">
+        <i class="fas fa-envelope text-lg mb-1"></i>
+        <span class="text-[10px]">Contact</span>
       </a>
     </nav>
 
@@ -345,34 +381,51 @@
         const subject = formData.get('subject');
         const message = formData.get('message');
 
-        let fullMessage = message;
-        if (subject) {
-          fullMessage = `Subject: ${subject}\n\n${fullMessage}`;
+        if (!email || !message) {
+          statusEl.textContent = 'Email and message required';
+          statusEl.className = 'mt-4 text-center text-red-400';
+          return;
         }
 
         statusEl.textContent = 'Sending...';
-        statusEl.classList.remove('text-red-400', 'text-green-400');
+        statusEl.className = 'mt-4 text-center text-white';
 
         try {
-          const res = await fetch('/send', {
+          const res = await fetch('http://localhost:5000/send', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email, message: fullMessage }),
+            body: JSON.stringify({ name, email, subject, message })
           });
 
           const data = await res.json();
 
           if (data.success) {
-            statusEl.textContent = "Message sent successfully! I'll get back to you soon.";
-            statusEl.classList.add('text-green-400');
+            statusEl.textContent = "Message sent! I'll get back to you soon.";
+            statusEl.className = 'mt-4 text-center text-green-400';
             hireForm.reset();
+            setTimeout(() => {
+              document.getElementById('hire-modal').classList.add('hidden');
+            }, 2000);
           } else {
-            throw new Error(data.error || 'Unknown error');
+            throw new Error();
           }
         } catch (err) {
-          statusEl.textContent = 'Error sending message. Please try again or email me directly.';
-          statusEl.classList.add('text-red-400');
-          console.error(err);
+          statusEl.textContent = 'Error sending. Email me directly.';
+          statusEl.className = 'mt-4 text-center text-red-400';
+        }
+      });
+
+      // Close modal when clicking outside
+      document.getElementById('hire-modal').addEventListener('click', function(e) {
+        if (e.target.id === 'hire-modal') {
+          this.classList.add('hidden');
+        }
+      });
+
+      // Close modal with Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          document.getElementById('hire-modal').classList.add('hidden');
         }
       });
     </script>

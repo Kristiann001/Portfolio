@@ -106,7 +106,29 @@
 
       <!-- Education Section -->
       <section>
-        <h2 class="text-2xl font-bold mb-6">Education & Training</h2>
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-2xl font-bold">Education & Training</h2>
+          <button
+            id="add-education-btn"
+            class="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-colors"
+          >
+            <i class="fas fa-plus"></i>
+            Add
+          </button>
+        </div>
+
+        <div id="education-loading" class="text-center py-8 hidden">
+          <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-green-500"></div>
+          <p class="mt-2 text-white/70 text-sm">Loading...</p>
+        </div>
+
+        <div id="education-empty" class="text-center py-8 hidden">
+          <!-- Hidden by default, shown only if dynamic list is empty -->
+        </div>
+
+        <div id="education-list" class="flex flex-col gap-6 mb-6">
+          <!-- Dynamic Content will be injected here -->
+        </div>
         <div class="flex flex-col-reverse gap-6">
           <!-- Most Recent: IST -->
           <div
@@ -179,24 +201,26 @@
     </main>
 
     <!-- Bottom Navigation (Mobile Only) -->
-    <nav
-      class="fixed bottom-0 left-0 right-0 z-50 bg-[#2b2b2d]/95 backdrop-blur border-t border-gray-700 text-white flex justify-around items-center h-14 sm:hidden"
-    >
-      <a href="index.html" class="flex flex-col items-center justify-center text-xs hover:text-green-400">
-        <i class="fas fa-home text-lg"></i>
-        <span>Home</span>
+    <nav class="fixed bottom-0 left-0 right-0 z-50 bg-[#2b2b2d]/95 backdrop-blur-md border-t border-white/10 flex justify-around items-center h-16 sm:hidden px-2">
+      <a href="index.html" class="flex flex-col items-center justify-center w-full h-full text-white/60 hover:text-green-400 transition-colors">
+        <i class="fas fa-home text-lg mb-1"></i>
+        <span class="text-[10px]">Home</span>
       </a>
-      <a href="about.html" class="flex flex-col items-center justify-center text-xs hover:text-green-400">
-        <i class="fas fa-user text-lg"></i>
-        <span>About</span>
+      <a href="about.html" class="flex flex-col items-center justify-center w-full h-full text-green-500">
+        <i class="fas fa-user text-lg mb-1"></i>
+        <span class="text-[10px]">About</span>
       </a>
-      <a href="achievements.html" class="flex flex-col items-center justify-center text-xs hover:text-green-400">
-        <i class="fas fa-trophy text-lg"></i>
-        <span>Awards</span>
+      <a href="achievements.html" class="flex flex-col items-center justify-center w-full h-full text-white/60 hover:text-green-400 transition-colors">
+        <i class="fas fa-trophy text-lg mb-1"></i>
+        <span class="text-[10px]">Awards</span>
       </a>
-      <a href="contact.html" class="flex flex-col items-center justify-center text-xs hover:text-green-400">
-        <i class="fas fa-envelope text-lg"></i>
-        <span>Contact</span>
+      <a href="projects.html" class="flex flex-col items-center justify-center w-full h-full text-white/60 hover:text-green-400 transition-colors">
+        <i class="fas fa-briefcase text-lg mb-1"></i>
+        <span class="text-[10px]">Projects</span>
+      </a>
+      <a href="contact.html" class="flex flex-col items-center justify-center w-full h-full text-white/60 hover:text-green-400 transition-colors">
+        <i class="fas fa-envelope text-lg mb-1"></i>
+        <span class="text-[10px]">Contact</span>
       </a>
     </nav>
 
@@ -266,11 +290,265 @@
       </div>
     </div>
 
+    <!-- Admin Password Modal -->
+    <div id="admin-password-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-70 flex items-center justify-center z-50 px-4">
+      <div class="bg-[#2b2b2d] rounded-xl shadow-2xl w-full max-w-md p-8 relative">
+        <button onclick="closeAdminPasswordModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
+        <h2 class="text-2xl font-bold text-green-400 mb-6 text-center">Admin Access Required</h2>
+        <form id="admin-password-form">
+          <div class="mb-6">
+            <label class="block text-white mb-2" for="admin-password">Enter Admin Password</label>
+            <input type="password" id="admin-password" name="password" required autocomplete="off"
+              class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+              placeholder="••••••••••••••••" />
+          </div>
+          <div class="flex justify-center gap-4">
+            <button type="button" onclick="closeAdminPasswordModal()" class="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition">Cancel</button>
+            <button type="submit" class="px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition">Confirm</button>
+          </div>
+          <p id="admin-status" class="mt-4 text-center hidden"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Education Modal -->
+    <div id="education-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-70 flex items-center justify-center z-50 px-4">
+      <div class="bg-[#2b2b2d] rounded-xl shadow-2xl w-full max-w-lg p-8 relative">
+        <button onclick="closeEducationModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
+        <h2 id="education-modal-title" class="text-2xl font-bold text-green-400 mb-6 text-center">Add Education</h2>
+        <form id="education-form">
+          <div class="mb-4">
+            <label class="block text-white mb-1" for="edu-title">Title / Course <span class="text-red-400">*</span></label>
+            <input type="text" id="edu-title" name="title" required class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="e.g., BSc Computer Science" />
+          </div>
+          <div class="mb-4">
+            <label class="block text-white mb-1" for="edu-institution">Institution <span class="text-red-400">*</span></label>
+            <input type="text" id="edu-institution" name="institution" required class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="e.g., University of Tech" />
+          </div>
+          <div class="mb-4">
+            <label class="block text-white mb-1" for="edu-duration">Duration <span class="text-red-400">*</span></label>
+            <input type="text" id="edu-duration" name="duration" required class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="e.g., Jan 2020 - Dec 2024" />
+          </div>
+          <div class="mb-4">
+            <label class="block text-white mb-1" for="edu-description">Description <span class="text-red-400">*</span></label>
+            <textarea id="edu-description" name="description" required rows="3" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 resize-none" placeholder="Key topics learned..."></textarea>
+          </div>
+          <div class="mb-4">
+            <label class="block text-white mb-1">Institution Logo</label>
+            <div class="flex gap-4 mb-2">
+              <label class="flex items-center"><input type="radio" name="imageType" value="file" checked class="mr-2"> Upload File</label>
+              <label class="flex items-center"><input type="radio" name="imageType" value="url" class="mr-2"> Use URL</label>
+            </div>
+            <div id="file-upload-section">
+              <input type="file" id="edu-image-file" name="image" accept="image/*" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" />
+            </div>
+            <div id="url-upload-section" class="hidden">
+              <input type="url" id="edu-image-url" name="imageUrl" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="https://example.com/logo.png" />
+            </div>
+          </div>
+          <div class="flex justify-center">
+            <button type="submit" class="px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition">Save</button>
+          </div>
+          <p id="edu-status" class="mt-4 text-center text-white"></p>
+        </form>
+      </div>
+    </div>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 
     <!-- Form Submission Script -->
     <script>
+      const API_BASE = 'http://localhost:5000';
+      let editingId = null;
+
+      // --- Admin & Modal Logic ---
+      function closeAdminPasswordModal() {
+        document.getElementById('admin-password-modal').classList.add('hidden');
+        document.getElementById('admin-password-form').reset();
+        document.getElementById('admin-status').classList.add('hidden');
+        document.getElementById('admin-status').textContent = '';
+      }
+
+      function setupImageTypeToggle() {
+        const radios = document.querySelectorAll('input[name="imageType"]');
+        const fileSection = document.getElementById('file-upload-section');
+        const urlSection = document.getElementById('url-upload-section');
+        radios.forEach(radio => {
+          radio.addEventListener('change', function() {
+            if (this.value === 'file') {
+              fileSection.classList.remove('hidden');
+              urlSection.classList.add('hidden');
+            } else {
+              fileSection.classList.add('hidden');
+              urlSection.classList.remove('hidden');
+            }
+          });
+        });
+      }
+
+      function openEducationModal(id = null) {
+        document.getElementById('admin-password-modal').classList.remove('hidden');
+        document.getElementById('admin-password').focus();
+
+        const form = document.getElementById('admin-password-form');
+        const status = document.getElementById('admin-status');
+        form.onsubmit = null;
+
+        form.onsubmit = async (e) => {
+          e.preventDefault();
+          status.textContent = 'Verifying...';
+          status.className = 'mt-4 text-center text-white';
+          status.classList.remove('hidden');
+
+          const password = document.getElementById('admin-password').value;
+
+          try {
+            const res = await fetch(`${API_BASE}/admin/verify`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ password })
+            });
+            const data = await res.json();
+
+            if (data.success) {
+              closeAdminPasswordModal();
+              editingId = id;
+              document.getElementById('education-modal-title').textContent = id ? 'Edit Education' : 'Add Education';
+              document.getElementById('education-form').reset();
+              document.getElementById('edu-status').textContent = '';
+              
+              document.querySelector('input[name="imageType"][value="file"]').checked = true;
+              document.getElementById('file-upload-section').classList.remove('hidden');
+              document.getElementById('url-upload-section').classList.add('hidden');
+              
+              document.getElementById('education-modal').classList.remove('hidden');
+              setupImageTypeToggle();
+            } else {
+              status.textContent = data.error || 'Incorrect password';
+              status.className = 'mt-4 text-center text-red-400';
+            }
+          } catch (err) {
+            status.textContent = 'Connection error. Is the server running?';
+            status.className = 'mt-4 text-center text-red-400';
+          }
+        };
+      }
+
+      function closeEducationModal() {
+        document.getElementById('education-modal').classList.add('hidden');
+      }
+
+      // --- Data Loading & Rendering ---
+      function renderEducation(items) {
+        const list = document.getElementById('education-list');
+        const loading = document.getElementById('education-loading');
+        const empty = document.getElementById('education-empty');
+
+        loading.classList.add('hidden');
+
+        if (items.length === 0) {
+          // Don't necessarily show empty state if we have hardcoded cards, but list is empty.
+          // Keep it hidden to avoid clutter.
+          list.innerHTML = '';
+          return;
+        }
+
+        list.innerHTML = '';
+
+        items.forEach(edu => {
+          list.innerHTML += `
+            <div class="group bg-[#3a3a3c] p-6 rounded-xl shadow-md border border-white/10 flex flex-col sm:flex-row items-start sm:items-center gap-4 relative overflow-hidden transition-all hover:border-green-500/30">
+               <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                  <button onclick="openEducationModal('${edu._id}')" class="text-blue-400 hover:text-blue-300 mr-2 text-sm">Edit</button>
+                  <button onclick="deleteEducation('${edu._id}')" class="text-red-400 hover:text-red-300 text-sm">Delete</button>
+               </div>
+               
+               <img src="${edu.image}" alt="${edu.institution}" class="w-16 h-16 object-contain bg-white/5 rounded p-1" onerror="this.src='/Images/ist.png'" />
+               
+               <div>
+                 <h3 class="text-xl font-semibold mb-1">${edu.title}</h3>
+                 <p class="text-white/80 mb-1">${edu.institution}</p>
+                 <p class="text-sm text-white/60 mb-2">${edu.duration}</p>
+                 <p class="text-white/80 text-sm leading-relaxed">${edu.description}</p>
+               </div>
+            </div>`;
+        });
+      }
+
+      async function loadEducation() {
+        document.getElementById('education-loading').classList.remove('hidden');
+        try {
+          const res = await fetch(`${API_BASE}/education`);
+          if (!res.ok) throw new Error();
+          const data = await res.json();
+          renderEducation(data);
+        } catch {
+          document.getElementById('education-loading').classList.add('hidden');
+          // Silently fail or minimal error, since static cards exist
+          console.log('Failed to load education');
+        }
+      }
+
+      // --- CRUD Operations ---
+      document.getElementById('education-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        
+        const data = new FormData();
+        data.append('title', formData.get('title'));
+        data.append('institution', formData.get('institution'));
+        data.append('duration', formData.get('duration'));
+        data.append('description', formData.get('description'));
+        
+        const imageType = formData.get('imageType');
+        if (imageType === 'file') {
+             const file = formData.get('image');
+             if (file && file.size > 0) data.append('image', file);
+        } else {
+             const url = formData.get('imageUrl')?.trim();
+             if (url) data.append('imageUrl', url);
+        }
+
+        const status = document.getElementById('edu-status');
+        status.textContent = 'Saving...';
+        status.className = 'mt-4 text-center text-white';
+
+        try {
+          const url = editingId ? `${API_BASE}/education/${editingId}` : `${API_BASE}/education`;
+          const res = await fetch(url, {
+            method: editingId ? 'PUT' : 'POST',
+            body: data
+          });
+          if (!res.ok) throw new Error();
+          status.textContent = 'Saved successfully!';
+          status.className = 'mt-4 text-center text-green-400';
+          closeEducationModal();
+          loadEducation();
+        } catch {
+          status.textContent = 'Failed to save. Please try again.';
+          status.className = 'mt-4 text-center text-red-400';
+        }
+      });
+
+      async function deleteEducation(id) {
+        if (!confirm('Delete this entry?')) return;
+        try {
+          const res = await fetch(`${API_BASE}/education/${id}`, { method: 'DELETE' });
+          if (!res.ok) throw new Error();
+          loadEducation();
+        } catch {
+          alert('Failed to delete.');
+        }
+      }
+      
+      // Initial Load
+      loadEducation();
+
+      // Bind the Add Button
+      document.getElementById('add-education-btn').addEventListener('click', () => openEducationModal());
+
+      // Hire Form Logic
       const hireForm = document.getElementById('hire-form');
       const statusEl = document.getElementById('hire-status');
 
@@ -281,12 +559,13 @@
         const email = formData.get('email');
         const subject = formData.get('subject');
         const message = formData.get('message');
+        
         let fullMessage = message;
-        if (subject) {
-          fullMessage = `Subject: ${subject}\n\n${fullMessage}`;
-        }
+        if (subject) fullMessage = `Subject: ${subject}\n\n${fullMessage}`;
+        
         statusEl.textContent = 'Sending...';
         statusEl.classList.remove('text-red-400', 'text-green-400');
+        
         try {
           const res = await fetch('/send', {
             method: 'POST',
@@ -295,16 +574,15 @@
           });
           const data = await res.json();
           if (data.success) {
-            statusEl.textContent = "Message sent successfully! I'll get back to you soon.";
+            statusEl.textContent = "Message sent successfully!";
             statusEl.classList.add('text-green-400');
             hireForm.reset();
           } else {
-            throw new Error(data.error || 'Unknown error');
+            throw new Error(data.error);
           }
         } catch (err) {
-          statusEl.textContent = 'Error sending message. Please try again or email me directly.';
+          statusEl.textContent = 'Error sending message.';
           statusEl.classList.add('text-red-400');
-          console.error(err);
         }
       });
     </script>
