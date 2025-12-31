@@ -293,7 +293,7 @@
 
     <!-- Hire Modal -->
     <div id="hire-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-70 flex items-center justify-center z-50 px-4">
-      <div class="bg-[#2b2b2d] rounded-xl shadow-2xl w-full max-w-lg p-8 relative">
+      <div class="bg-[#2b2b2d] rounded-xl shadow-2xl w-full max-w-lg p-8 relative max-h-[90vh] overflow-y-auto">
         <button
           onclick="document.getElementById('hire-modal').classList.add('hidden')"
           class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl"
@@ -369,6 +369,7 @@
 
     <!-- Form Submission Script -->
     <script>
+      const API_BASE = 'http://localhost:5000';
       const hireForm = document.getElementById('hire-form');
       const statusEl = document.getElementById('hire-status');
 
@@ -391,7 +392,7 @@
         statusEl.className = 'mt-4 text-center text-white';
 
         try {
-          const res = await fetch('http://localhost:5000/send', {
+          const res = await fetch(`${API_BASE}/send`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, email, subject, message })
