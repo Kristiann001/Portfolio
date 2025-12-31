@@ -7,6 +7,7 @@
     <link rel="icon" href="https://img.freepik.com/premium-vector/kk-logo-vector_724449-190.jpg" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>myPortfolio - Projects</title>
   </head>
   <body class="bg-gray-100">
@@ -67,8 +68,13 @@
           <i class="fas fa-briefcase text-6xl text-gray-500 mb-4"></i>
           <h3 class="text-xl font-semibold mb-2">No Projects Yet</h3>
           <p class="text-white/70 mb-6">Add your first project to showcase your work!</p>
-          <button onclick="openProjectModal()" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition">
-            <i class="fas fa-plus mr-2"></i>Add First Project
+          <button
+            id="add-project-btn"
+            onclick="openProjectModal()"
+            class="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-green-900/40 transform hover:-translate-y-0.5"
+          >
+            <i class="fas fa-plus"></i>
+            <span>Add Project</span>
           </button>
         </div>
 
@@ -152,39 +158,107 @@
     </div>
 
     <!-- Project Modal -->
-    <div id="project-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-70 flex items-center justify-center z-50 px-4">
-      <div class="bg-[#2b2b2d] rounded-xl shadow-2xl w-full max-w-lg p-8 relative max-h-[90vh] overflow-y-auto">
-        <button onclick="closeProjectModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
-        <h2 id="project-modal-title" class="text-2xl font-bold text-green-400 mb-6 text-center">Add Project</h2>
+    <div id="project-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 px-4 transition-all duration-300">
+      <div class="bg-[#1e1e20]/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl shadow-green-500/10 w-full max-w-lg p-8 relative max-h-[90vh] overflow-y-auto">
+        <button onclick="closeProjectModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="text-center mb-8">
+          <h2 id="project-modal-title" class="text-2xl font-bold text-white mb-2">Add Project</h2>
+          <p class="text-gray-400 text-sm">Share your latest work with the world</p>
+        </div>
         <form id="project-form">
-          <div class="mb-4">
-            <label class="block text-white mb-1" for="proj-title">Project Title <span class="text-red-400">*</span></label>
-            <input type="text" id="proj-title" name="title" required class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="e.g., E-Commerce Platform" />
-          </div>
-          <div class="mb-4">
-            <label class="block text-white mb-1" for="proj-description">Description <span class="text-red-400">*</span></label>
-            <textarea id="proj-description" name="description" required rows="3" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 resize-none" placeholder="Brief description of the project and technologies used"></textarea>
-          </div>
-          <div class="mb-4">
-            <label class="block text-white mb-1">Project Image</label>
-            <div class="flex gap-4 mb-2">
-              <label class="flex items-center"><input type="radio" name="imageType" value="file" checked class="mr-2"> Upload File</label>
-              <label class="flex items-center"><input type="radio" name="imageType" value="url" class="mr-2"> Use URL</label>
+          <div class="mb-5">
+            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2" for="proj-title">Project Title <span class="text-green-500">*</span></label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
+                <i class="fas fa-heading"></i>
+              </span>
+              <input type="text" id="proj-title" name="title" required 
+                class="w-full pl-10 pr-4 py-3 bg-black/20 border border-white/10 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all font-medium" 
+                placeholder="e.g., E-Commerce Platform" />
             </div>
-            <div id="file-upload-section">
-              <input type="file" id="proj-image-file" name="image" accept="image/*" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" />
-              <p class="text-xs text-gray-400 mt-1">Accepted: Images (max 10MB)</p>
-            </div>
-            <div id="url-upload-section" class="hidden">
-              <input type="url" id="proj-image-url" name="imageUrl" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="https://example.com/project-screenshot.jpg" />
+          </div>
+          <div class="mb-5">
+            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2" for="proj-description">Description <span class="text-green-500">*</span></label>
+            <div class="relative">
+              <span class="absolute top-3 left-3 text-gray-500">
+                <i class="fas fa-align-left"></i>
+              </span>
+              <textarea id="proj-description" name="description" required rows="3" 
+                class="w-full pl-10 pr-4 py-3 bg-black/20 border border-white/10 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all resize-none" 
+                placeholder="Brief description of the project..."></textarea>
             </div>
           </div>
           <div class="mb-6">
-            <label class="block text-white mb-1" for="proj-link">Live Demo / GitHub Link</label>
-            <input type="url" id="proj-link" name="link" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="https://your-project-live.com or https://github.com/..." />
+            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Project Image</label>
+            
+            <!-- Custom Tabs -->
+            <div class="flex p-1 bg-black/40 rounded-lg mb-3">
+              <label class="flex-1 text-center cursor-pointer">
+                <input type="radio" name="imageType" value="file" checked class="peer hidden">
+                <span class="block py-2 rounded-md text-sm font-medium text-gray-400 peer-checked:bg-[#2b2b2d] peer-checked:text-white peer-checked:shadow-sm transition-all text-white">Upload</span>
+              </label>
+              <label class="flex-1 text-center cursor-pointer">
+                <input type="radio" name="imageType" value="url" class="peer hidden">
+                <span class="block py-2 rounded-md text-sm font-medium text-gray-400 peer-checked:bg-[#2b2b2d] peer-checked:text-white peer-checked:shadow-sm transition-all text-white">URL</span>
+              </label>
+            </div>
+
+            <div id="file-upload-section">
+              <label class="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-white/20 rounded-lg cursor-pointer hover:border-green-500/50 hover:bg-black/20 transition-all group">
+                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                    <i class="fas fa-cloud-upload-alt text-2xl text-gray-500 group-hover:text-green-500 mb-2 transition-colors"></i>
+                    <p class="mb-1 text-sm text-gray-400"><span class="font-semibold text-white">Click to upload</span> or drag and drop</p>
+                    <p class="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 10MB)</p>
+                </div>
+                <input type="file" id="proj-image-file" name="image" accept="image/*" class="hidden" />
+              </label>
+            </div>
+
+            <div id="url-upload-section" class="hidden">
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
+                  <i class="fas fa-link"></i>
+                </span>
+                <input type="url" id="proj-image-url" name="imageUrl" 
+                  class="w-full pl-10 pr-4 py-3 bg-black/20 border border-white/10 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all" 
+                  placeholder="https://example.com/project-screenshot.jpg" />
+              </div>
+            </div>
+          </div>
+          <div class="mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2" for="proj-link">Live Demo / GitHub</label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <input type="url" id="proj-link" name="link" 
+                    class="w-full pl-10 pr-4 py-3 bg-black/20 border border-white/10 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all text-sm" 
+                    placeholder="https://github.com/..." />
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2" for="proj-loom">Loom Video</label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
+                    <i class="fas fa-video"></i>
+                  </span>
+                  <input type="url" id="proj-loom" name="loomLink" 
+                    class="w-full pl-10 pr-4 py-3 bg-black/20 border border-white/10 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all text-sm" 
+                    placeholder="https://loom.com/..." />
+                </div>
+              </div>
+            </div>
           </div>
           <div class="flex justify-center">
-            <button type="submit" class="px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition">Save Project</button>
+            <button type="submit" 
+              class="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-green-600 to-green-500 text-white font-bold rounded-xl hover:from-green-500 hover:to-green-400 transition-all shadow-lg shadow-green-900/40 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2">
+              <i class="fas fa-save"></i>
+              <span>Save Project</span>
+            </button>
           </div>
           <p id="proj-status" class="mt-4 text-center text-white"></p>
         </form>
@@ -221,52 +295,62 @@
         });
       }
 
+      let isAdminVerified = false;
+
       function openProjectModal(id = null) {
-        document.getElementById('admin-password-modal').classList.remove('hidden');
-        document.getElementById('admin-password').focus();
+        if (!isAdminVerified) {
+             document.getElementById('admin-password-modal').classList.remove('hidden');
+             document.getElementById('admin-password').focus();
 
-        const form = document.getElementById('admin-password-form');
-        const status = document.getElementById('admin-status');
-        form.onsubmit = null;
+             const form = document.getElementById('admin-password-form');
+             const status = document.getElementById('admin-status');
+             
+             form.onsubmit = async (e) => {
+               e.preventDefault();
+               status.textContent = 'Verifying...';
+               status.classList.remove('hidden');
+               status.className = 'mt-4 text-center text-white';
 
-        form.onsubmit = async (e) => {
-          e.preventDefault();
-          status.textContent = 'Verifying...';
-          status.className = 'mt-4 text-center text-white';
-          status.classList.remove('hidden');
+               const password = document.getElementById('admin-password').value;
 
-          const password = document.getElementById('admin-password').value;
+               try {
+                 const res = await fetch(`${API_BASE}/admin/verify`, {
+                   method: 'POST',
+                   headers: { 'Content-Type': 'application/json' },
+                   body: JSON.stringify({ password })
+                 });
+                 const data = await res.json();
 
-          try {
-            const res = await fetch(`${API_BASE}/admin/verify`, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ password })
-            });
-            const data = await res.json();
+                 if (data.success) {
+                    isAdminVerified = true;
+                    closeAdminPasswordModal();
+                    showProjectForm(id);
+                 } else {
+                   status.textContent = 'Incorrect password';
+                   status.className = 'mt-4 text-center text-red-500';
+                 }
+               } catch (err) {
+                 status.textContent = 'Server error';
+                 status.className = 'mt-4 text-center text-red-500';
+               }
+             };
+        } else {
+            showProjectForm(id);
+        }
+      }
 
-            if (data.success) {
-              closeAdminPasswordModal();
-              editingId = id;
-              document.getElementById('project-modal-title').textContent = id ? 'Edit Project' : 'Add Project';
-              document.getElementById('project-form').reset();
-              document.getElementById('proj-status').textContent = '';
-              
-              document.querySelector('input[name="imageType"][value="file"]').checked = true;
-              document.getElementById('file-upload-section').classList.remove('hidden');
-              document.getElementById('url-upload-section').classList.add('hidden');
-              
-              document.getElementById('project-modal').classList.remove('hidden');
-              setupImageTypeToggle();
-            } else {
-              status.textContent = data.error || 'Incorrect password';
-              status.className = 'mt-4 text-center text-red-400';
-            }
-          } catch (err) {
-            status.textContent = 'Connection error. Is the server running?';
-            status.className = 'mt-4 text-center text-red-400';
-          }
-        };
+      function showProjectForm(id) {
+          editingId = id;
+          document.getElementById('project-modal-title').textContent = id ? 'Edit Project' : 'Add Project';
+          document.getElementById('project-form').reset();
+          document.getElementById('proj-status').textContent = '';
+          
+           document.querySelector('input[name="imageType"][value="file"]').checked = true;
+           document.getElementById('file-upload-section').classList.remove('hidden');
+           document.getElementById('url-upload-section').classList.add('hidden');
+           
+          document.getElementById('project-modal').classList.remove('hidden');
+          setupImageTypeToggle();
       }
 
       function closeProjectModal() {
@@ -302,11 +386,18 @@
 
         projects.forEach(proj => {
           const linkHtml = proj.link 
-            ? `<a href="${proj.link}" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-500 text-white text-sm font-medium rounded-lg transition-all shadow-lg hover:shadow-green-900/30 transform hover:-translate-y-0.5">
-                 <span>View Live</span>
-                 <i class="fas fa-external-link-alt text-xs"></i>
+            ? `<a href="${proj.link}" target="_blank" class="inline-flex items-center gap-2 px-3 py-2 bg-green-600 hover:bg-green-500 text-white text-xs font-medium rounded-lg transition-all shadow-lg hover:shadow-green-900/30 transform hover:-translate-y-0.5">
+                 <span>Code/Live</span>
+                 <i class="fas fa-external-link-alt"></i>
                </a>` 
-            : `<span class="px-4 py-2 bg-gray-700/50 text-gray-500 text-sm font-medium rounded-lg cursor-not-allowed border border-white/5">No Link</span>`;
+            : `<span class="px-3 py-2 bg-gray-700/50 text-gray-500 text-xs font-medium rounded-lg cursor-not-allowed border border-white/5">No Link</span>`;
+
+          const loomHtml = proj.loomLink
+            ? `<a href="${proj.loomLink}" target="_blank" class="inline-flex items-center gap-2 px-3 py-2 bg-purple-600 hover:bg-purple-500 text-white text-xs font-medium rounded-lg transition-all shadow-lg hover:shadow-purple-900/30 transform hover:-translate-y-0.5">
+                 <span>Watch Demo</span>
+                 <i class="fas fa-play-circle"></i>
+               </a>`
+            : '';
 
           grid.innerHTML += `
             <div class="group bg-[#3a3a3c] bg-gradient-to-br from-[#3a3a3c] to-[#2b2b2d] rounded-2xl overflow-hidden border border-white/10 hover:border-green-500/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] flex flex-col h-full ring-1 ring-white/5">
@@ -344,7 +435,8 @@
                       <!-- Date or Tech stack could go here -->
                    </div>
                    
-                   <div class="ml-auto">
+                   <div class="ml-auto flex gap-2">
+                     ${loomHtml}
                      ${linkHtml}
                    </div>
                 </div>
@@ -375,6 +467,7 @@
         const title = formData.get('title')?.trim();
         const description = formData.get('description')?.trim();
         const link = formData.get('link')?.trim();
+        const loomLink = formData.get('loomLink')?.trim();
         const imageType = formData.get('imageType');
 
         if (!title || !description) {
@@ -387,6 +480,7 @@
         data.append('title', title);
         data.append('description', description);
         if (link) data.append('link', link);
+        if (loomLink) data.append('loomLink', loomLink);
         
         if (imageType === 'file') {
              const file = formData.get('image');
@@ -407,8 +501,19 @@
             body: data // Sending FormData directly handles multipart/form-data
           });
           if (!res.ok) throw new Error();
-          status.textContent = 'Project saved!';
-          status.className = 'mt-4 text-center text-green-400';
+          
+          Swal.fire({
+            icon: 'success',
+            title: editingId ? 'Project updated!' : 'Project added!',
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            background: '#2b2b2d',
+            color: '#ffffff'
+          });
+          
           closeProjectModal();
           loadProjects();
         } catch {
@@ -418,13 +523,41 @@
       });
 
       async function deleteProject(id) {
-        if (!confirm('Delete this project?')) return;
-        try {
-          const res = await fetch(`${API_BASE}/projects/${id}`, { method: 'DELETE' });
-          if (!res.ok) throw new Error();
-          loadProjects();
-        } catch {
-          alert('Failed to delete project.');
+        const result = await Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#16a34a',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!',
+          background: '#2b2b2d',
+          color: '#ffffff'
+        });
+
+        if (result.isConfirmed) {
+          try {
+            const res = await fetch(`${API_BASE}/projects/${id}`, { method: 'DELETE' });
+            if (!res.ok) throw new Error();
+            loadProjects();
+            Swal.fire({
+              title: 'Deleted!',
+              text: 'The project has been deleted.',
+              icon: 'success',
+              background: '#2b2b2d',
+              color: '#ffffff',
+              confirmButtonColor: '#16a34a'
+            });
+          } catch {
+            Swal.fire({
+              title: 'Error!',
+              text: 'Failed to delete project.',
+              icon: 'error',
+              background: '#2b2b2d',
+              color: '#ffffff',
+              confirmButtonColor: '#16a34a'
+            });
+          }
         }
       }
 

@@ -7,6 +7,7 @@
     <link rel="icon" href="https://img.freepik.com/premium-vector/kk-logo-vector_724449-190.jpg" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>myPortfolio - Achievements</title>
   </head>
   <body class="bg-gray-100">
@@ -68,8 +69,13 @@
           <i class="fas fa-trophy text-6xl text-gray-500 mb-4"></i>
           <h3 class="text-xl font-semibold mb-2">No Achievements Yet</h3>
           <p class="text-white/70 mb-6">Add your first achievement to showcase your accomplishments!</p>
-          <button onclick="openAchievementModal()" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition">
-            <i class="fas fa-plus mr-2"></i>Add First Achievement
+          <button
+            id="add-achievement-btn"
+            onclick="openAchievementModal()"
+            class="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-green-900/40 transform hover:-translate-y-0.5"
+          >
+            <i class="fas fa-plus"></i>
+            <span>Add Achievement</span>
           </button>
         </div>
 
@@ -153,35 +159,82 @@
     </div>
 
     <!-- Achievement Modal -->
-    <div id="achievement-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-70 flex items-center justify-center z-50 px-4">
-      <div class="bg-[#2b2b2d] rounded-xl shadow-2xl w-full max-w-lg p-8 relative max-h-[90vh] overflow-y-auto">
-        <button onclick="closeAchievementModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
-        <h2 id="achievement-modal-title" class="text-2xl font-bold text-green-400 mb-6 text-center">Add Achievement</h2>
+    <div id="achievement-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 px-4 transition-all duration-300">
+      <div class="bg-[#1e1e20]/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl shadow-green-500/10 w-full max-w-lg p-8 relative max-h-[90vh] overflow-y-auto">
+        <button onclick="closeAchievementModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="text-center mb-8">
+          <h2 id="achievement-modal-title" class="text-2xl font-bold text-white mb-2">Add Achievement</h2>
+          <p class="text-gray-400 text-sm">Showcase your awards and certificates</p>
+        </div>
         <form id="achievement-form">
-          <div class="mb-4">
-            <label class="block text-white mb-1" for="ach-title">Title <span class="text-red-400">*</span></label>
-            <input type="text" id="ach-title" name="title" required class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="e.g., Full-Stack Web Development" />
-          </div>
-          <div class="mb-4">
-            <label class="block text-white mb-1" for="ach-description">Description <span class="text-red-400">*</span></label>
-            <textarea id="ach-description" name="description" required rows="3" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 resize-none" placeholder="Brief description of the achievement"></textarea>
-          </div>
-          <div class="mb-4">
-            <label class="block text-white mb-1">Image Source</label>
-            <div class="flex gap-4 mb-2">
-              <label class="flex items-center"><input type="radio" name="imageType" value="file" checked class="mr-2"> Upload File</label>
-              <label class="flex items-center"><input type="radio" name="imageType" value="url" class="mr-2"> Use URL</label>
+          <div class="mb-5">
+            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2" for="ach-title">Title <span class="text-green-500">*</span></label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
+                <i class="fas fa-trophy"></i>
+              </span>
+              <input type="text" id="ach-title" name="title" required 
+                class="w-full pl-10 pr-4 py-3 bg-black/20 border border-white/10 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all font-medium" 
+                placeholder="e.g., Full-Stack Web Development" />
             </div>
+          </div>
+          <div class="mb-5">
+            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2" for="ach-description">Description <span class="text-green-500">*</span></label>
+            <div class="relative">
+              <span class="absolute top-3 left-3 text-gray-500">
+                <i class="fas fa-align-left"></i>
+              </span>
+              <textarea id="ach-description" name="description" required rows="3" 
+                class="w-full pl-10 pr-4 py-3 bg-black/20 border border-white/10 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all resize-none" 
+                placeholder="Brief description of the achievement"></textarea>
+            </div>
+          </div>
+          <div class="mb-6">
+            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Image Source</label>
+            
+            <!-- Custom Tabs -->
+            <div class="flex p-1 bg-black/40 rounded-lg mb-3">
+              <label class="flex-1 text-center cursor-pointer">
+                <input type="radio" name="imageType" value="file" checked class="peer hidden">
+                <span class="block py-2 rounded-md text-sm font-medium text-gray-400 peer-checked:bg-[#2b2b2d] peer-checked:text-white peer-checked:shadow-sm transition-all text-white">Upload</span>
+              </label>
+              <label class="flex-1 text-center cursor-pointer">
+                <input type="radio" name="imageType" value="url" class="peer hidden">
+                <span class="block py-2 rounded-md text-sm font-medium text-gray-400 peer-checked:bg-[#2b2b2d] peer-checked:text-white peer-checked:shadow-sm transition-all text-white">URL</span>
+              </label>
+            </div>
+
             <div id="file-upload-section">
-              <input type="file" id="ach-image-file" name="image" accept="image/*, .pdf, .doc, .docx" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" />
-              <p class="text-xs text-gray-400 mt-1">Accepted: Images, PDF, Word documents (max 10MB)</p>
+              <label class="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-white/20 rounded-lg cursor-pointer hover:border-green-500/50 hover:bg-black/20 transition-all group">
+                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                    <i class="fas fa-cloud-upload-alt text-2xl text-gray-500 group-hover:text-green-500 mb-2 transition-colors"></i>
+                    <p class="mb-1 text-sm text-gray-400"><span class="font-semibold text-white">Click to upload</span> or drag and drop</p>
+                    <p class="text-xs text-gray-500">Images, PDF, DOC (MAX. 10MB)</p>
+                </div>
+                <input type="file" id="ach-image-file" name="image" accept="image/*, .pdf, .doc, .docx" class="hidden" />
+              </label>
             </div>
+
             <div id="url-upload-section" class="hidden">
-              <input type="url" id="ach-image-url" name="imageUrl" class="w-full px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="https://example.com/image.jpg" />
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
+                  <i class="fas fa-link"></i>
+                </span>
+                <input type="url" id="ach-image-url" name="imageUrl" 
+                  class="w-full pl-10 pr-4 py-3 bg-black/20 border border-white/10 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all" 
+                  placeholder="https://example.com/certificate.jpg" />
+              </div>
             </div>
           </div>
           <div class="flex justify-center">
-            <button type="submit" class="px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition" id="ach-submit-btn">Save Achievement</button>
+            <button type="submit" 
+              class="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-green-600 to-green-500 text-white font-bold rounded-xl hover:from-green-500 hover:to-green-400 transition-all shadow-lg shadow-green-900/40 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2" 
+              id="ach-submit-btn">
+              <i class="fas fa-save"></i>
+              <span>Save Achievement</span>
+            </button>
           </div>
           <p id="ach-status" class="mt-4 text-center text-white"></p>
         </form>
@@ -218,50 +271,62 @@
         });
       }
 
+      let isAdminVerified = false;
+
       function openAchievementModal(id = null) {
-        document.getElementById('admin-password-modal').classList.remove('hidden');
-        document.getElementById('admin-password').focus();
+        if (!isAdminVerified) {
+             document.getElementById('admin-password-modal').classList.remove('hidden');
+             document.getElementById('admin-password').focus();
 
-        const form = document.getElementById('admin-password-form');
-        const status = document.getElementById('admin-status');
-        form.onsubmit = null;
+             const form = document.getElementById('admin-password-form');
+             const status = document.getElementById('admin-status');
+             
+             form.onsubmit = async (e) => {
+               e.preventDefault();
+               status.textContent = 'Verifying...';
+               status.classList.remove('hidden');
+               status.className = 'mt-4 text-center text-white';
 
-        form.onsubmit = async (e) => {
-          e.preventDefault();
-          status.textContent = 'Verifying...';
-          status.className = 'mt-4 text-center text-white';
-          status.classList.remove('hidden');
+               const password = document.getElementById('admin-password').value;
 
-          const password = document.getElementById('admin-password').value;
+               try {
+                 const res = await fetch(`${API_BASE}/admin/verify`, {
+                   method: 'POST',
+                   headers: { 'Content-Type': 'application/json' },
+                   body: JSON.stringify({ password })
+                 });
+                 const data = await res.json();
 
-          try {
-            const res = await fetch(`${API_BASE}/admin/verify`, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ password })
-            });
-            const data = await res.json();
+                 if (data.success) {
+                   isAdminVerified = true;
+                   closeAdminPasswordModal();
+                   showAchievementForm(id);
+                 } else {
+                   status.textContent = 'Incorrect password';
+                   status.className = 'mt-4 text-center text-red-500';
+                 }
+               } catch (err) {
+                 status.textContent = 'Server error';
+                 status.className = 'mt-4 text-center text-red-500';
+               }
+             };
+        } else {
+             showAchievementForm(id);
+        }
+      }
 
-            if (data.success) {
-              closeAdminPasswordModal();
-              editingId = id;
-              document.getElementById('achievement-modal-title').textContent = id ? 'Edit Achievement' : 'Add Achievement';
-              document.getElementById('achievement-form').reset();
-              document.getElementById('ach-status').textContent = '';
-              document.querySelector('input[name="imageType"][value="file"]').checked = true;
-              document.getElementById('file-upload-section').classList.remove('hidden');
-              document.getElementById('url-upload-section').classList.add('hidden');
-              document.getElementById('achievement-modal').classList.remove('hidden');
-              setupImageTypeToggle();
-            } else {
-              status.textContent = data.error || 'Incorrect password';
-              status.className = 'mt-4 text-center text-red-400';
-            }
-          } catch (err) {
-            status.textContent = 'Connection error. Is the server running?';
-            status.className = 'mt-4 text-center text-red-400';
-          }
-        };
+      function showAchievementForm(id) {
+          editingId = id;
+          document.getElementById('achievement-modal-title').textContent = id ? 'Edit Achievement' : 'Add Achievement';
+          document.getElementById('achievement-form').reset();
+          document.getElementById('ach-status').textContent = '';
+          
+          document.querySelector('input[name="imageType"][value="file"]').checked = true;
+          document.getElementById('file-upload-section').classList.remove('hidden');
+          document.getElementById('url-upload-section').classList.add('hidden');
+          
+          document.getElementById('achievement-modal').classList.remove('hidden');
+          setupImageTypeToggle();
       }
 
       function closeAchievementModal() {
@@ -375,8 +440,19 @@
             body: data
           });
           if (!res.ok) throw new Error();
-          status.textContent = 'Achievement saved!';
-          status.className = 'mt-4 text-center text-green-400';
+          
+          Swal.fire({
+            icon: 'success',
+            title: editingId ? 'Achievement updated!' : 'Achievement added!',
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            background: '#2b2b2d',
+            color: '#ffffff'
+          });
+          
           closeAchievementModal();
           loadAchievements();
         } catch {
@@ -386,13 +462,41 @@
       });
 
       async function deleteAchievement(id) {
-        if (!confirm('Delete this achievement?')) return;
-        try {
-          const res = await fetch(`${API_BASE}/achievements/${id}`, { method: 'DELETE' });
-          if (!res.ok) throw new Error();
-          loadAchievements();
-        } catch {
-          alert('Failed to delete achievement.');
+        const result = await Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#16a34a',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!',
+          background: '#2b2b2d',
+          color: '#ffffff'
+        });
+
+        if (result.isConfirmed) {
+          try {
+            const res = await fetch(`${API_BASE}/achievements/${id}`, { method: 'DELETE' });
+            if (!res.ok) throw new Error();
+            loadAchievements();
+            Swal.fire({
+              title: 'Deleted!',
+              text: 'The achievement has been deleted.',
+              icon: 'success',
+              background: '#2b2b2d',
+              color: '#ffffff',
+              confirmButtonColor: '#16a34a'
+            });
+          } catch {
+            Swal.fire({
+              title: 'Error!',
+              text: 'Failed to delete achievement.',
+              icon: 'error',
+              background: '#2b2b2d',
+              color: '#ffffff',
+              confirmButtonColor: '#16a34a'
+            });
+          }
         }
       }
 
